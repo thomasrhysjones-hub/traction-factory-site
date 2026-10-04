@@ -89,7 +89,9 @@ h2 { font-size: clamp(40px, 5vw, 68px); line-height: 1.02; letter-spacing: -.055
 .experience-copy p { margin-bottom: 24px; }
 .experience-copy .muted { font-size: 14px; color: #a9a9a9; border-top: 1px solid rgba(255,255,255,.12); padding-top: 22px; }
 
-.about-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 100px; }
+.about-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 100px; align-items: start; }
+.about-portrait-wrap { margin-bottom: 28px; max-width: 360px; }
+.about-portrait { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 28px; border: 1px solid var(--line); box-shadow: 0 22px 60px rgba(20,20,20,.12); background: #ddd; }
 .about-kicker h2 { font-size: 52px; }
 .role { margin-top: 12px; font-weight: 700; color: var(--orange); }
 .about-copy { max-width: 740px; font-size: 19px; color: #494541; }
@@ -146,4 +148,5 @@ footer { padding: 44px 0 56px; }
   .service-card { min-height: 240px; }
   .contact-card { padding: 34px 26px; border-radius: 22px; }
   .about-kicker h2 { font-size: 44px; }
+  .about-portrait-wrap { max-width: 100%; }
 }
