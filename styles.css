@@ -158,11 +158,19 @@ h1 span { color: var(--orange); }
 .proof-grid > div:last-child { border-right: 0; }
 .proof-grid strong {
   display: block;
-  font-size: 32px;
+  font-size: 30px;
   letter-spacing: -.04em;
   color: var(--orange);
 }
 .proof-grid span { display: block; margin-top: 4px; color: #bdbdbd; font-size: 13px; }
+.proof-caption {
+  margin: 0;
+  padding: 18px 0 20px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  color: #8f8f8f;
+  font-size: 13px;
+  letter-spacing: .01em;
+}
 
 .section { padding: 112px 0; }
 .section-heading {
