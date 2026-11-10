@@ -2,7 +2,8 @@
 title: "Why iGaming Studios Struggle to Secure Operator Distribution"
 description: "Getting signed is only the start. The commercial and operational reasons game studios struggle to turn distribution access into active operator revenue."
 category: iGaming Industry
-date: 2026-11-10 10:00:00 +0200
+date: 2026-10-28 10:00:00 +0200
+last_modified_at: 2026-11-10 17:55:00 +0200
 ---
 For a game studio, distribution can look deceptively simple: make good games, sign an aggregator, reach operators.
 

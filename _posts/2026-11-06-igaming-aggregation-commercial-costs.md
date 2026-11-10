@@ -2,7 +2,8 @@
 title: "What Does iGaming Aggregation Actually Cost?"
 description: "A practical guide to aggregator fees, revenue share, direct integrations and the commercial trade-offs behind game distribution."
 category: iGaming Industry
-date: 2026-11-10 09:00:00 +0200
+date: 2026-11-06 09:00:00 +0200
+last_modified_at: 2026-11-10 17:55:00 +0200
 ---
 A studio has a game. An operator wants to offer it. Between those two businesses there is often a third: the aggregator.
 

@@ -2,7 +2,8 @@
 title: "Building an iGaming Affiliate Programme From Scratch"
 description: "The commercial foundations of an iGaming affiliate programme: economics, tracking, partner recruitment, compliance and ongoing account management."
 category: Commercial Growth
-date: 2026-11-10 11:00:00 +0200
+date: 2026-10-16 11:00:00 +0300
+last_modified_at: 2026-11-10 17:55:00 +0200
 ---
 An affiliate programme can become a substantial acquisition channel for an iGaming operator. It can also become a collection of expensive deals, poor tracking and arguments about player value.
 
