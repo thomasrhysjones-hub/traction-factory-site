@@ -1,0 +1,19 @@
+title: Traction Factory
+description: Senior commercial consultancy for iGaming and technology businesses.
+url: "https://tractionfactory.co"
+baseurl: ""
+timezone: Europe/Nicosia
+markdown: kramdown
+permalink: /articles/:title/
+exclude:
+  - README.md
+  - PUBLISHING.md
+  - Gemfile
+  - Gemfile.lock
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: Thomas Rhys Jones

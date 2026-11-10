@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -30,7 +32,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,16 +51,28 @@
 <body>
   <header class="site-header">
     <div class="shell header-inner">
-      <a class="brand" href="#top" aria-label="Traction Factory home">
+      <a class="brand" href="/" aria-label="Traction Factory home">
         <img src="traction-factory-logo.png" alt="Traction Factory" />
         <span>Traction Factory</span>
       </a>
-      <nav aria-label="Primary navigation">
-        <a href="#services">What we do</a>
-        <a href="#experience">Experience</a>
-        <a href="#about">About</a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="/services/">Services</a>
+        <a href="/igaming-consultancy/">iGaming</a>
+        <a href="/about/">About</a>
+        <a href="/articles/">Articles</a>
         <a class="nav-cta" href="#contact">Talk to us</a>
       </nav>
+      <details class="mobile-menu">
+        <summary>Menu <span aria-hidden="true">+</span></summary>
+        <nav aria-label="Mobile navigation">
+          <a href="/">Home</a>
+          <a href="/services/">Services</a>
+          <a href="/igaming-consultancy/">iGaming</a>
+          <a href="/about/">About</a>
+          <a href="/articles/">Articles</a>
+          <a href="#contact">Talk to us</a>
+        </nav>
+      </details>
     </div>
   </header>
 
@@ -71,7 +85,7 @@
           <p class="hero-lede">Senior commercial support for iGaming and technology businesses. Strategy, partnerships, market entry, revenue growth and leadership when experienced hands are needed.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#contact">Start a conversation</a>
-            <a class="button button-secondary" href="#services">See what we do</a>
+            <a class="button button-secondary" href="/services/">See what we do</a>
           </div>
           <p class="hero-note">Strategy matters. Execution is where it earns its keep.</p>
         </div>
@@ -146,6 +160,7 @@
             <p>Experienced commercial leadership without a permanent hire. Useful for launches, gaps, resets and periods of change.</p>
           </article>
         </div>
+        <div class="section-link-row"><a class="text-link" href="/services/">Explore our commercial services ↗</a></div>
       </div>
     </section>
 
@@ -163,14 +178,27 @@
       </div>
     </section>
 
+    <section class="section section-specialist" aria-labelledby="igaming-title">
+      <div class="shell feature-split">
+        <div>
+          <p class="eyebrow">Industry focus</p>
+          <h2 id="igaming-title">iGaming. From both sides of the table.</h2>
+        </div>
+        <div class="feature-copy">
+          <p>Operators, studios, aggregators and affiliates face different commercial challenges. We've worked across the chain, from launching brands and acquiring players to growing distribution and managing supplier relationships.</p>
+          <a class="text-link" href="/igaming-consultancy/">Explore iGaming consultancy ↗</a>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="about">
       <div class="shell about-grid">
         <div class="about-kicker">
           <div class="about-portrait-wrap">
-            <img class="about-portrait" src="thomas-jones.jpg" alt="Portrait of Thomas Jones" />
+            <img class="about-portrait" src="thomas-jones.jpg" alt="Portrait of Thomas Rhys Jones" />
           </div>
           <p class="eyebrow">Founder</p>
-          <h2>Thomas Jones</h2>
+          <h2>Thomas Rhys Jones</h2>
           <p class="role">Founder &amp; Director</p>
         </div>
         <div class="about-copy">
@@ -178,6 +206,25 @@
           <p>His experience spans startups, scale-ups and large international businesses, with responsibility for P&amp;Ls, international growth, commercial teams, strategic partnerships and revenue.</p>
           <p>Traction Factory exists to bring that experience into businesses that need commercial progress without unnecessary theatre.</p>
           <a class="linkedin-link" href="https://www.linkedin.com/in/thomasrhysjones/" target="_blank" rel="noopener noreferrer" aria-label="Thomas Jones on LinkedIn">View Thomas on LinkedIn <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section homepage-articles" aria-labelledby="latest-articles-title">
+      <div class="shell">
+        <div class="small-section-head">
+          <div><p class="eyebrow">Articles</p><h2 id="latest-articles-title">From the commercial side.</h2></div>
+          <a class="text-link" href="/articles/">Read all articles ↗</a>
+        </div>
+        <div class="article-list">
+          {% for post in site.posts limit:3 %}
+          <a class="article-teaser" href="{{ post.url | relative_url }}">
+            <span class="article-category">{{ post.category | escape }} · {{ post.date | date: '%-d %b %Y' }}</span>
+            <h3>{{ post.title | escape }}</h3>
+            <p>{{ post.description | escape }}</p>
+            <span class="article-arrow" aria-hidden="true">↗</span>
+          </a>
+          {% endfor %}
         </div>
       </div>
     </section>

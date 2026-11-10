@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#202623">
+  <meta name="robots" content="index, follow">
+  <title>{% if page.seo_title %}{{ page.seo_title | escape }}{% else %}{{ page.title | escape }} | Traction Factory{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:site_name" content="Traction Factory">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:title" content="{{ page.seo_title | default: page.title | escape }}">
+  <meta property="og:description" content="{{ page.description | default: site.description | escape }}">
+  <meta property="og:image" content="https://tractionfactory.co/og-image.png">
+  {% if page.layout == 'post' %}<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">{% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.seo_title | default: page.title | escape }}">
+  <meta name="twitter:description" content="{{ page.description | default: site.description | escape }}">
+  <meta name="twitter:image" content="https://tractionfactory.co/og-image.png">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://tractionfactory.co/#organization",
+    "name": "Traction Factory",
+    "url": "https://tractionfactory.co/",
+    "logo": "https://tractionfactory.co/traction-factory-logo.png",
+    "email": "hello@tractionfactory.co",
+    "founder": {"@type": "Person", "name": "Thomas Rhys Jones", "url": "https://tractionfactory.co/about/"},
+    "sameAs": ["https://www.linkedin.com/in/thomasrhysjones/"]
+  }
+  </script>
+  {% if page.schema_type == 'person' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Thomas Rhys Jones",
+    "url": "https://tractionfactory.co/about/",
+    "image": "https://tractionfactory.co/thomas-jones.jpg",
+    "jobTitle": "Founder and Director",
+    "worksFor": {"@id": "https://tractionfactory.co/#organization"},
+    "sameAs": ["https://www.linkedin.com/in/thomasrhysjones/"]
+  }
+  </script>
+  {% endif %}
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="Traction Factory home">
+        <img src="/traction-factory-logo.png" alt="" width="44" height="44">
+        <span>Traction Factory</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="/services/"{% if page.url == '/services/' %} aria-current="page"{% endif %}>Services</a>
+        <a href="/igaming-consultancy/"{% if page.url == '/igaming-consultancy/' %} aria-current="page"{% endif %}>iGaming</a>
+        <a href="/about/"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+        <a href="/articles/"{% if page.url == '/articles/' or page.layout == 'post' %} aria-current="page"{% endif %}>Articles</a>
+        <a class="nav-cta" href="/#contact">Talk to us</a>
+      </nav>
+      <details class="mobile-menu">
+        <summary>Menu <span aria-hidden="true">+</span></summary>
+        <nav aria-label="Mobile navigation">
+          <a href="/">Home</a>
+          <a href="/services/">Services</a>
+          <a href="/igaming-consultancy/">iGaming</a>
+          <a href="/about/">About</a>
+          <a href="/articles/">Articles</a>
+          <a href="/#contact">Talk to us</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+  <main id="top">{{ content }}</main>
+  <section class="section contact-section" id="contact">
+    <div class="shell contact-card">
+      <div>
+        <p class="eyebrow">Start a conversation</p>
+        <h2>Got a commercial problem?</h2>
+        <p>If you're launching, scaling or trying to get a difficult commercial decision moving, get in touch.</p>
+      </div>
+      <div class="contact-actions">
+        <a class="button button-primary" href="mailto:hello@tractionfactory.co?subject=Traction%20Factory%20enquiry">Contact Traction Factory</a>
+        <a class="contact-email" href="mailto:hello@tractionfactory.co">hello@tractionfactory.co</a>
+        <a class="contact-linkedin" href="https://www.linkedin.com/in/thomasrhysjones/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <small>Cyprus · Malta · UK · International</small>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="shell footer-inner">
+      <a class="footer-brand" href="/"><img src="/traction-factory-logo.png" alt="" width="33" height="33"><span>Traction Factory</span></a>
+      <p><a class="footer-email" href="mailto:hello@tractionfactory.co">hello@tractionfactory.co</a></p>
+      <p><a class="footer-linkedin" href="https://www.linkedin.com/in/thomasrhysjones/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></p>
+      <p>© <span id="year">2026</span> Traction Factory.</p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
