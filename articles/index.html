@@ -1,0 +1,28 @@
+---
+layout: default
+title: Articles
+seo_title: iGaming & Commercial Growth Articles | Traction Factory
+description: Practical articles on iGaming distribution, partnerships, commercial leadership, affiliate acquisition and growth, written by Thomas Rhys Jones.
+permalink: /articles/
+---
+<section class="inner-hero">
+  <div class="shell inner-hero-grid">
+    <div><p class="eyebrow">Articles &amp; perspectives</p><h1>Ideas from<br><span>doing the job.</span></h1></div>
+    <div class="inner-side"><p>Commercial questions, industry economics and lessons picked up along the way.</p><p>Written for people who have to make the decisions, not just talk about them.</p></div>
+  </div>
+</section>
+<section class="section section-tight">
+  <div class="shell">
+    <div class="small-section-head"><h2>Latest articles.</h2><p>By Thomas Rhys Jones, founder of Traction Factory.</p></div>
+    <div class="article-list">
+      {% for post in site.posts %}
+      <a class="article-teaser" href="{{ post.url | relative_url }}">
+        <span class="article-category">{{ post.category | escape }} <span aria-hidden="true">·</span> {{ post.date | date: '%-d %b %Y' }}</span>
+        <h3>{{ post.title | escape }}</h3>
+        <p>{{ post.description | escape }}</p>
+        <span class="article-arrow" aria-hidden="true">↗</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
