@@ -1,0 +1,65 @@
+---
+layout: default
+---
+<article>
+  <header class="inner-hero post-hero">
+    <div class="shell">
+      <a class="breadcrumb" href="/articles/">← All articles</a>
+      <p class="eyebrow">{{ page.category | escape }}</p>
+      <h1>{{ page.title | escape }}</h1>
+      <p class="inner-lede">{{ page.description | escape }}</p>
+      <div class="post-meta"><span>Thomas Rhys Jones</span><span aria-hidden="true">·</span><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%-d %B %Y' }}</time></div>
+    </div>
+  </header>
+  <div class="shell article-shell">
+    <div class="article-body">{{ content }}</div>
+    <aside class="article-sidebar" aria-label="About the author">
+      <p class="eyebrow">Written by</p>
+      <img class="author-avatar" src="/thomas-jones.jpg" alt="Thomas Rhys Jones">
+      <h2>Thomas Rhys Jones</h2>
+      <p>Founder of Traction Factory. Two decades across commercial leadership, partnerships and growth in iGaming and technology.</p>
+      <a class="text-link" href="/about/">About Thomas ↗</a>
+    </aside>
+  </div>
+  <section class="article-end">
+    <div class="shell article-end-inner">
+      <p class="eyebrow">From the theory to the work</p>
+      <h2>Need help putting it into practice?</h2>
+      <p>Traction Factory works with businesses on the commercial decisions, teams and partnerships behind growth.</p>
+      <a class="button button-primary" href="/services/">Explore our services</a>
+    </div>
+  </section>
+  <section class="section related-section">
+    <div class="shell">
+      <div class="small-section-head"><h2>More from Traction Factory</h2><a class="text-link" href="/articles/">All articles ↗</a></div>
+      <div class="article-list">
+        {% assign related_count = 0 %}
+        {% for post in site.posts %}
+        {% if post.url != page.url and related_count < 2 %}
+        <a class="article-teaser" href="{{ post.url | relative_url }}">
+          <span class="article-category">{{ post.category | escape }}</span>
+          <h3>{{ post.title | escape }}</h3>
+          <p>{{ post.description | escape }}</p>
+          <span class="article-arrow" aria-hidden="true">↗</span>
+        </a>
+        {% assign related_count = related_count | plus: 1 %}
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ page.title | jsonify }},
+    "description": {{ page.description | jsonify }},
+    "mainEntityOfPage": {{ page.url | absolute_url | jsonify }},
+    "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+    "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+    "author": {"@type":"Person","name":"Thomas Rhys Jones","url":"https://tractionfactory.co/about/"},
+    "publisher": {"@id":"https://tractionfactory.co/#organization"},
+    "image": "https://tractionfactory.co/og-image.png"
+  }
+  </script>
+</article>
