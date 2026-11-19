@@ -16,12 +16,15 @@ permalink: /articles/
     <div class="small-section-head"><h2>Latest articles.</h2><p>By Thomas Rhys Jones, founder of Traction Factory.</p></div>
     <div class="article-list">
       {% for post in site.posts %}
-      <a class="article-teaser" href="{{ post.url | relative_url }}">
-        <span class="article-category">{{ post.category | escape }} <span aria-hidden="true">·</span> {{ post.date | date: '%-d %b %Y' }}</span>
-        <h3>{{ post.title | escape }}</h3>
-        <p>{{ post.description | escape }}</p>
-        <span class="article-arrow" aria-hidden="true">↗</span>
-      </a>
+      <div class="article-entry">
+        <a class="article-teaser" href="{{ post.url | relative_url }}">
+          <span class="article-category">{{ post.category | escape }} <span aria-hidden="true">·</span> {{ post.date | date: '%-d %b %Y' }}</span>
+          <h3>{{ post.title | escape }}</h3>
+          <p>{{ post.description | escape }}</p>
+          <span class="article-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="article-share-link" href="https://www.linkedin.com/sharing/share-offsite/?url={{ post.url | absolute_url | url_encode }}" target="_blank" rel="noopener noreferrer" aria-label="Share {{ post.title | escape }} on LinkedIn">Share on LinkedIn ↗</a>
+      </div>
       {% endfor %}
     </div>
   </div>
