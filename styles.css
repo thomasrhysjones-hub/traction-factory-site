@@ -550,3 +550,38 @@ footer { padding: 40px 0 51px; background: var(--paper); }
   .article-sidebar .author-avatar { width: 80px; height: 88px; }
   .article-end { padding: 55px 0 60px; }
 }
+
+/* Article sharing: visible at the start and end of each article, and on index cards. */
+.article-share-hero { margin-top: 4px; }
+.article-share-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  border-top: 1px solid var(--line);
+  margin-top: 60px;
+  padding-top: 27px;
+}
+.article-share-bottom span {
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 600;
+}
+.article-share-bottom .button { text-decoration: none; color: var(--white); }
+.article-entry { display: flex; flex-direction: column; min-width: 0; }
+.article-entry .article-teaser { flex: 1; }
+.article-share-link {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 13px 0 8px;
+  color: var(--orange-dark);
+  font-size: 13px;
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+}
+.article-share-link:hover { border-color: var(--orange-dark); }
+@media (max-width: 620px) {
+  .article-share-bottom { align-items: flex-start; flex-direction: column; }
+  .article-share-bottom .button { width: 100%; }
+}
