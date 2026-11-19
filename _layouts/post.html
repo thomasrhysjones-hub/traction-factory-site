@@ -9,6 +9,9 @@ layout: default
       <h1>{{ page.title | escape }}</h1>
       <p class="inner-lede">{{ page.description | escape }}</p>
       <div class="post-meta"><span>Thomas Rhys Jones</span><span aria-hidden="true">·</span><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%-d %B %Y' }}</time></div>
+      <div class="hero-actions">
+        <a class="button button-secondary" href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url | url_encode }}" target="_blank" rel="noopener noreferrer" aria-label="Share this article on LinkedIn">Share on LinkedIn ↗</a>
+      </div>
     </div>
   </header>
   <div class="shell article-shell">
