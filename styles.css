@@ -585,3 +585,39 @@ footer { padding: 40px 0 51px; background: var(--paper); }
   .article-share-bottom { align-items: flex-start; flex-direction: column; }
   .article-share-bottom .button { width: 100%; }
 }
+
+
+/* AI in iGaming. Editorial landing page uses existing site grid, type and spacing. */
+.section-ai-home { border-top: 1px solid var(--line); background: #f0f0ea; }
+.section-ai-home .feature-copy { color: var(--ink-2); font-size: 19px; }
+.section-ai-home .feature-copy p { max-width: 650px; }
+.section-ai-home .text-link { margin-top: 7px; }
+.ai-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.ai-hero-actions .button { min-height: 46px; }
+.ai-principle { max-width: 920px; margin: 0 0 38px; color: var(--ink-2); font-size: clamp(21px, 2.1vw, 27px); line-height: 1.48; letter-spacing: -.017em; }
+.ai-standfirst { max-width: 890px; font-size: clamp(20px, 2vw, 25px); line-height: 1.5; letter-spacing: -.017em; }
+.ai-split-list .detail-item { padding-top: 32px; padding-bottom: 30px; }
+.ai-split-list .detail-item p { max-width: 520px; }
+.ai-step-list { counter-reset: ai-step; border-top: 1px solid var(--line); }
+.ai-step { display: grid; grid-template-columns: 88px minmax(180px,.7fr) minmax(0,1fr); gap: 24px; align-items: start; border-bottom: 1px solid var(--line); padding: 28px 0 31px; }
+.ai-step .ai-count { font: 500 12px/1.6 var(--detail-font); color: var(--orange-dark); }
+.ai-step h3 { margin: 0; font-size: 23px; line-height: 1.25; letter-spacing: -.025em; font-weight: 500; }
+.ai-step p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.67; }
+.ai-evidence { padding: 24px 0 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; line-height: 1.7; }
+.ai-evidence a { text-decoration: underline; text-underline-offset: 3px; }
+.ai-evidence a:hover { color: var(--orange-dark); }
+.ai-cta-line { display: flex; justify-content: space-between; align-items: center; gap: 28px; padding: 31px 0 0; border-top: 1px solid var(--line); }
+.ai-cta-line p { margin: 0; max-width: 700px; color: var(--ink-2); font-size: 18px; }
+.ai-sidebar-note { margin-top: 28px; }
+@media (max-width: 850px) {
+  .ai-step { grid-template-columns: 45px minmax(0, .8fr) minmax(0, 1fr); gap: 20px; }
+}
+@media (max-width: 620px) {
+  .section-ai-home .feature-copy { font-size: 17px; }
+  .ai-hero-actions .button { width: 100%; }
+  .ai-step { grid-template-columns: 38px minmax(0,1fr); gap: 7px 16px; padding: 22px 0 25px; }
+  .ai-step p { grid-column: 2; font-size: 15px; }
+  .ai-step h3 { font-size: 21px; }
+  .ai-cta-line { display: block; }
+  .ai-cta-line .button { margin-top: 22px; width: 100%; }
+}

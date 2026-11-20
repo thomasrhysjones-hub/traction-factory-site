@@ -62,8 +62,9 @@
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="/services/"{% if page.url == '/services/' %} aria-current="page"{% endif %}>Services</a>
         <a href="/igaming-consultancy/"{% if page.url == '/igaming-consultancy/' %} aria-current="page"{% endif %}>iGaming</a>
+        <a href="/ai-in-igaming/"{% if page.url == '/ai-in-igaming/' or page.category == 'AI in iGaming' %} aria-current="page"{% endif %}>AI in iGaming</a>
         <a href="/about/"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
-        <a href="/articles/"{% if page.url == '/articles/' or page.layout == 'post' %} aria-current="page"{% endif %}>Articles</a>
+        <a href="/articles/"{% if page.url == '/articles/' or page.layout == 'post' and page.category != 'AI in iGaming' %} aria-current="page"{% endif %}>Articles</a>
         <a class="nav-cta" href="/#contact">Talk to us</a>
       </nav>
       <details class="mobile-menu">
@@ -72,7 +73,8 @@
           <a href="/">Home</a>
           <a href="/services/">Services</a>
           <a href="/igaming-consultancy/">iGaming</a>
-          <a href="/about/">About</a>
+          <a href="/ai-in-igaming/">AI in iGaming</a>
+        <a href="/about/">About</a>
           <a href="/articles/">Articles</a>
           <a href="/#contact">Talk to us</a>
         </nav>
