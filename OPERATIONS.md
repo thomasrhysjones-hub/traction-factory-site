@@ -11,26 +11,33 @@ After every merge:
 4. Confirm the intended homepage text and article filters render and that `/sitemap.xml` includes new service pages.
 5. Check the chosen enquiry path on a real mobile browser. If anything fails, use the existing direct `mailto:hello@tractionfactory.co` link as the fallback while repairing the deployment.
 
-## Phase 1: Verified form delivery (FormSubmit)
+## Phase 1: Verified form delivery (Formspree)
 
-The live site retains the visitor's email-composer workflow until FormSubmit has been activated and tested.
+The original FormSubmit setup is retired due to reported activation failures. `/contact/activate/` no longer submits to FormSubmit.
 
-This PR prepares a separate form in `contact/index.html`, but **`_config.yml` defaults to `form_delivery: "mailto"`**. No prospect details go to FormSubmit while this setting remains unchanged.
+The public contact form **continues to prepare an email draft** while `form_delivery: "mailto"` in `_config.yml`. No third-party visitor data submission is enabled by default.
 
-1. Once this release is deployed, open `https://tractionfactory.co/contact/activate/` yourself.
-2. Submit the one-time setup test. It contains only a company setup message, not client information.
-3. FormSubmit will email an activation link to `hello@tractionfactory.co`. Open that mailbox and click the verification link.
-4. Submit the same setup test again and confirm the test message arrives. Check spam too. Do **not** enable the public form until delivery is proven.
-5. Only then change `form_delivery: "mailto"` to `form_delivery: "formsubmit"` in `_config.yml` and deploy via a reviewed commit.
-6. Test the real contact page with a clearly labelled internal test, confirm it reaches the mailbox and that `/contact/thanks/` appears only after the provider's redirect.
+Formspree is the prepared replacement and needs an actual form endpoint, generated in the business owner's account. Never invent or commit a placeholder as a working endpoint.
 
-The active form uses a native HTTPS POST, visitor name/email, subject and source labels, a honeypot and FormSubmit's default reCAPTCHA. It deliberately **does not** use an AJAX 'success' that might appear before delivery is confirmed.
+1. Visit `https://formspree.io/` and register for a Free account, using the company mailbox if preferred.
+2. Create a form called **Traction Factory enquiries** in the Formspree dashboard.
+3. In its settings, set the notification destination to `hello@tractionfactory.co`. Verify any email or account ownership prompts requested by Formspree.
+4. Copy the actual HTTPS form endpoint from the **Integration** tab. It has a structure similar to `https://formspree.io/f/xxxxxxxx`. Do not send an API secret; this endpoint is meant to appear in public HTML.
+5. Put that URL into `formspree_endpoint` in `_config.yml` and change `form_delivery` from `"mailto"` to `"formspree"`. The site template has two independent guards: the delivery value and a nonempty endpoint.
+6. Deploy a small reviewed change, then submit a clearly labelled internal test from `/contact/`. Confirm the submission is visible in the Formspree dashboard **and** its notification arrives in `hello@tractionfactory.co`.
+7. Verify topic/source tagging, reply-to email, form spam settings, and the built-in Formspree thank-you page. The free plan does not include a custom thank-you redirect.
+8. Only after both dashboard and mailbox checks pass should the rollout be considered complete.
 
-**Privacy:** Visitors are told that FormSubmit processes messages for delivery. Evaluate the provider's privacy terms, data retention and suitability for the consultancy before switching it on. Avoid collecting sensitive personal or confidential information in an unencrypted business enquiry form. The direct email option remains available.
+The fallback direct email link must remain available if the external form service has issues.
 
-**Important:** `enquiry_submit_attempt` is **not** proof of delivery. Only a received message or a tested server confirmation counts as an actual enquiry.
+Formspree offers a free tier with a monthly submission cap, 30-day submission history and basic spam protection. Review actual limits, privacy rules and data handling before enabling the integration.
 
-Provider documents: `https://formsubmit.co/documentation`, `https://formsubmit.co/help`.
+**Important:** `enquiry_submit_attempt` means a browser attempted a POST, not that Formspree delivered it. Only a confirmed submission or received message counts as a lead.
+
+Official references:
+- `https://help.formspree.io/articles/building-your-form/building-an-html-form`
+- `https://help.formspree.io/articles/account-management/account-limits`
+- `https://help.formspree.io/articles/building-your-form/email-subject-line/`
 
 ## Phase 2: Website analytics
 
@@ -58,7 +65,7 @@ Plausible setup: `https://plausible.io/docs/plausible-script`. A separate Plausi
 ## Not yet completed
 
 - Confirming the public GitHub Pages deployment using a fresh browser session
-- Activating and testing the FormSubmit recipient mailbox
+- Creating and testing a Formspree form and confirming receipt in hello@tractionfactory.co
 - Registering or connecting a Plausible account and validating real events
 - Reading private Google Search Console performance data
 

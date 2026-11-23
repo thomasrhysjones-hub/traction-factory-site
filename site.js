@@ -59,7 +59,7 @@
 
     builder.addEventListener('submit', function (event) {
       if (!builder.reportValidity()) { event.preventDefault(); return; }
-      if (builder.dataset.delivery !== 'formsubmit') event.preventDefault();
+      if (builder.dataset.delivery !== 'formspree') event.preventDefault();
 
       var label = topic.options[topic.selectedIndex].text;
       var source = parameters.get('source') || 'website';
@@ -67,7 +67,7 @@
 
       var subject = 'Traction Factory enquiry: ' + label + ' [' + source + ']';
 
-      if (builder.dataset.delivery === 'formsubmit') {
+      if (builder.dataset.delivery === 'formspree') {
         var subjectField = document.getElementById('enquiry-subject');
         var sourceField = document.getElementById('enquiry-source');
         if (subjectField) subjectField.value = subject;
