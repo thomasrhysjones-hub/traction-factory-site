@@ -7,9 +7,9 @@
 - Formspree processes and stores submitted contact details and message content. The site includes an explicit disclosure and a direct email alternative.
 - A submitted form carries a subject with the entry source (for example `[home-hero]` or `[igaming-page]`) when JavaScript is enabled.
 - **Delivery remains unverified** until a test submission is confirmed in both Formspree and the receiving mailbox.
-- Analytics tracking remains disabled (`analytics_provider: "none"`); source tagging is not the same as analytics attribution.
+- Umami is configured with the owner-supplied Website ID. Actual tracking must be verified after production deploy in the dashboard; source tagging alone is not proof of analytics collection.
 
-## Optional provider hooks (not yet active)
+## Custom event hooks (Umami configured; collection not yet verified)
 
 `/site.js` emits events only if a separately installed `window.umami`, `window.plausible`, or `window.gtag` analytics provider is present. Umami is the preferred free option. If no provider is configured, it sends nothing.
 
@@ -46,4 +46,4 @@ To enable analytics, follow `ANALYTICS_AND_GSC.md` and the `_includes/analytics.
 
 ## Activation dependencies
 
-Formspree form delivery is ON using the site-owner endpoint. Umami and Plausible analytics remain OFF. See `OPERATIONS.md` for the delivery test and what must not be reported as a converted lead.
+Formspree form delivery is ON using the site-owner endpoint. Umami is configured for the production domain and awaits a live dashboard check; Plausible remains OFF. See `OPERATIONS.md` for the delivery test and what must not be reported as a converted lead.
