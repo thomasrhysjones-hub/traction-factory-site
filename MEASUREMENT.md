@@ -11,7 +11,7 @@
 
 ## Optional provider hooks (not yet active)
 
-`/site.js` emits events only if a separately installed `window.plausible` **or** `window.gtag` analytics provider is present. If neither is configured, it sends nothing.
+`/site.js` emits events only if a separately installed `window.umami`, `window.plausible`, or `window.gtag` analytics provider is present. Umami is the preferred free option. If no provider is configured, it sends nothing.
 
 Supported event names:
 
@@ -28,7 +28,7 @@ Supported event names:
 
 Events include no names, company names, email addresses or free-text enquiry content. A composed email is **not** a sent enquiry. An `enquiry_submit_attempt` is only an attempted submission, not confirmed delivery. Do not report either as confirmed leads.
 
-To enable analytics, follow `OPERATIONS.md` and the `_includes/analytics.html` switch. The include is already used by both `index.html` and `_layouts/default.html`, so do not paste the same tracking code into both templates separately. Test a visit and a contact click in the provider dashboard before claiming collection is live.
+To enable analytics, follow `ANALYTICS_AND_GSC.md` and the `_includes/analytics.html` switch. The include is already used by both `index.html` and `_layouts/default.html`, so do not paste the same tracking code into both templates separately. Test a visit and a contact click in the provider dashboard before claiming collection is live.
 
 ## Practical review
 
@@ -46,4 +46,4 @@ To enable analytics, follow `OPERATIONS.md` and the `_includes/analytics.html` s
 
 ## Activation dependencies
 
-Formspree form delivery is ON using the site-owner endpoint. Plausible analytics is still OFF. See `OPERATIONS.md` for the delivery test and what must not be reported as a converted lead.
+Formspree form delivery is ON using the site-owner endpoint. Umami and Plausible analytics remain OFF. See `OPERATIONS.md` for the delivery test and what must not be reported as a converted lead.
