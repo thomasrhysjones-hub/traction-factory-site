@@ -1,0 +1,43 @@
+# Traction Factory: enquiry attribution and analytics
+
+## What is active now
+
+- Contextual site buttons lead to `/contact/?topic=...&source=...`.
+- The contact page suggests a suitable enquiry subject and prepares a draft in the visitor's own email application.
+- When the visitor sends that email, its subject includes the entry source (for example `[home-hero]` or `[igaming-page]`). This is **manual, inbox-based attribution**, not a conversion analytics system.
+- The visitor's form text is not sent to, or stored by, the website. Without JavaScript, the form falls back to a `mailto:` action.
+- No tracking cookies, external analytics scripts, or background data collection are added in this release.
+
+## Optional provider hooks (not yet active)
+
+`/site.js` emits events only if a separately installed `window.plausible` **or** `window.gtag` analytics provider is present. If neither is configured, it sends nothing.
+
+Supported event names:
+
+| Event | Meaning | Properties |
+| --- | --- | --- |
+| `contact_intent` | Visitor selects a contact CTA | source |
+| `email_click` | Visitor selects direct email link | source |
+| `linkedin_click` | Visitor selects LinkedIn contact | source |
+| `enquiry_compose` | Visitor successfully prepares an email | source, topic |
+| `article_filter` | Visitor chooses an article topic | source, topic |
+| `article_share` | Visitor selects a share link | source |
+| `internal_navigation` | Visitor clicks selected proof-to-about link | source |
+
+Events include no names, company names, email addresses or free-text enquiry content. A composed email is **not** a sent enquiry. Do not report these events as confirmed leads.
+
+To enable analytics, choose a provider, complete its account/domain setup, review privacy and consent obligations for your audience, and add its initialization snippet to **both** `index.html` and `_layouts/default.html`. Test a visit and a contact click in the provider dashboard before claiming collection is live. Do not install multiple trackers by accident.
+
+## Practical review
+
+1. Check Google Search Console separately for impressions, clicks and indexed URLs.
+2. Review inbound emails, grouping their subject tags by source and by business topic.
+3. If analytics is installed, track contact-intent clicks against confirmed inbound enquiries, not simply visits.
+4. Review the ratio of commercially useful leads to all enquiries. Traffic alone is not the success metric.
+
+## Test paths
+
+- `/contact/?topic=studio&source=igaming-page` should preselect studio distribution.
+- `/contact/?topic=ai&source=ai-page` should preselect AI in iGaming.
+- `/articles/` should show all topics before filtering, and a count after JavaScript initializes.
+- A contact form submission should **open the visitor's email composer**, not show a false “message sent” confirmation.
