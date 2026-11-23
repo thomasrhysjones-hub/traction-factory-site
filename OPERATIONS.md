@@ -38,19 +38,11 @@ Official references:
 
 ## Phase 2: Website analytics
 
-The site includes measurement event hooks, but **does not load any analytics script** while `analytics_provider: "none"`. No visitor tracking is implied.
+**Prepared, but inactive.** The site now supports free **Umami Cloud Hobby**, which includes pageviews and custom events. No analytics script loads until the owner provides their real Umami website ID and the site config is changed from `analytics_provider: "none"` to `"umami"`.
 
-To connect Plausible:
-1. Create a site for `tractionfactory.co` in your Plausible account and review its privacy and billing details.
-2. Copy the **current script URL from the account's official installation snippet**. Don't guess an old URL.
-3. Put that URL in `plausible_script_src` in `_config.yml` and set `analytics_provider: "plausible"`.
-4. Review `_includes/analytics.html` against the exact site-specific snippet from the Plausible dashboard, since setup formats change.
-5. Deploy via GitHub after review; then verify the script loads and pageviews appear in Plausible's dashboard.
-6. Configure custom event goals relevant to enquiries, particularly `contact_intent`, `enquiry_submit_attempt`, `enquiry_compose`, `email_click`. Do not count attempted submissions as verified leads.
+Follow `ANALYTICS_AND_GSC.md` for the provider setup, site ID placement, measurement event meanings and Google Search Console review.
 
-The current `site.js` only sends event hooks if the provider is installed. Never include names, message bodies, email addresses or company names in event properties.
-
-Plausible setup: `https://plausible.io/docs/plausible-script`. A separate Plausible account may involve a paid subscription after any trial; no subscription is initiated by this repository.
+The existing Plausible wiring is retained as an alternative. Do not install both. Avoid counting `enquiry_submit_attempt` as a completed business lead, and never send prospect details in analytics properties.
 
 ## Phase 3: Search Console and content
 
@@ -63,7 +55,7 @@ Plausible setup: `https://plausible.io/docs/plausible-script`. A separate Plausi
 
 - Confirming the public GitHub Pages deployment using a fresh browser session
 - Confirming Formspree delivery through its dashboard and at hello@tractionfactory.co
-- Registering or connecting a Plausible account and validating real events
+- Creating a free Umami Cloud website, obtaining the public website ID and validating real events
 - Reading private Google Search Console performance data
 
 These require provider/account access or an externally verified response. Do not mark them completed simply because the code has been merged.
