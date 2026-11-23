@@ -19,9 +19,12 @@ defaults:
       author: Thomas Rhys Jones
 
 # External services remain OFF until the receiving account is verified.
-# Set form_delivery to "formsubmit" only after confirming hello@tractionfactory.co
-# with FormSubmit and checking a real test submission.
+# Keep visitor mailto enquiries working until a Formspree account, a real
+# submission endpoint, and successful email delivery are verified.
+# To activate later: set form_delivery to "formspree" AND paste the official
+# https://formspree.io/f/<form-id> URL into formspree_endpoint.
 form_delivery: "mailto"
+formspree_endpoint: ""
 analytics_provider: "none"
 # Obtain the current site-specific script URL from Plausible's dashboard.
 plausible_script_src: ""
