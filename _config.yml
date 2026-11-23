@@ -17,3 +17,11 @@ defaults:
     values:
       layout: post
       author: Thomas Rhys Jones
+
+# External services remain OFF until the receiving account is verified.
+# Set form_delivery to "formsubmit" only after confirming hello@tractionfactory.co
+# with FormSubmit and checking a real test submission.
+form_delivery: "mailto"
+analytics_provider: "none"
+# Obtain the current site-specific script URL from Plausible's dashboard.
+plausible_script_src: ""

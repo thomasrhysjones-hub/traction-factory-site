@@ -1,0 +1,7 @@
+{% comment %}
+Optional analytics integration, deliberately disabled until Plausible account setup.
+Obtain the real script URL shown in your Plausible dashboard before activation.
+{% endcomment %}
+{% if site.analytics_provider == "plausible" and site.plausible_script_src != empty %}
+<script defer data-domain="tractionfactory.co" src="{{ site.plausible_script_src | escape }}"></script>
+{% endif %}

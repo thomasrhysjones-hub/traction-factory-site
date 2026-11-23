@@ -58,14 +58,25 @@
     if (matchedTopic) topic.value = suggestedTopic;
 
     builder.addEventListener('submit', function (event) {
-      event.preventDefault();
-      if (!builder.reportValidity()) return;
+      if (!builder.reportValidity()) { event.preventDefault(); return; }
+      if (builder.dataset.delivery !== 'formsubmit') event.preventDefault();
 
       var label = topic.options[topic.selectedIndex].text;
       var source = parameters.get('source') || 'website';
       if (!/^[a-z0-9-]{1,50}$/i.test(source)) source = 'website';
 
       var subject = 'Traction Factory enquiry: ' + label + ' [' + source + ']';
+
+      if (builder.dataset.delivery === 'formsubmit') {
+        var subjectField = document.getElementById('enquiry-subject');
+        var sourceField = document.getElementById('enquiry-source');
+        if (subjectField) subjectField.value = subject;
+        if (sourceField) sourceField.value = source;
+        // This is an attempt, NOT confirmation of delivery.
+        track('enquiry_submit_attempt', source, { topic: topic.value });
+        return;
+      }
+
       var lines = [
         'Area: ' + label,
         'Company / project: ' + (company.value.trim() || 'Not specified'),

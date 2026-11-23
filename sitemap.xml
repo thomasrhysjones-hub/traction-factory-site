@@ -9,11 +9,14 @@ layout: null
   <url><loc>https://tractionfactory.co/ai-in-igaming/</loc></url>
   <url><loc>https://tractionfactory.co/about/</loc></url>
   <url><loc>https://tractionfactory.co/contact/</loc></url>
+  <url><loc>https://tractionfactory.co/slot-studio-distribution/</loc></url>
+  <url><loc>https://tractionfactory.co/igaming-account-growth/</loc></url>
+  <url><loc>https://tractionfactory.co/fractional-commercial-leadership/</loc></url>
   <url><loc>https://tractionfactory.co/articles/</loc></url>
   {% for post in site.posts %}
   <url>
     <loc>{{ post.url | absolute_url }}</loc>
-    <lastmod>{{ post.date | date: '%Y-%m-%d' }}</lastmod>
+    <lastmod>{{ post.last_modified_at | default: post.date | date: '%Y-%m-%d' }}</lastmod>
   </url>
   {% endfor %}
 </urlset>

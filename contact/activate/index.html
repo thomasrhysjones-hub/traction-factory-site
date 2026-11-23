@@ -1,0 +1,26 @@
+---
+layout: default
+title: Contact Form Activation Test
+seo_title: Contact Form Activation | Traction Factory
+description: Internal form activation utility.
+robots: noindex, nofollow
+permalink: /contact/activate/
+---
+<section class="inner-hero"><div class="shell">
+  <p class="eyebrow">Internal setup / FormSubmit</p>
+  <h1>Activate form delivery.</h1>
+  <p class="inner-lede">This is a one-time setup utility, not the public enquiry form.</p>
+</div></section>
+<section class="section section-tight"><div class="shell">
+  <h2>Confirm the receiving mailbox.</h2>
+  <p>Use this only if you control <strong>hello@tractionfactory.co</strong>. Submitting this test tells FormSubmit to email an activation link to that address. Open the email and confirm it, then submit another test to verify delivery. The public enquiry form will remain email-based until its configuration is switched.</p>
+  <form action="https://formsubmit.co/hello@tractionfactory.co" method="POST" class="enquiry-form activation-form">
+    <input type="hidden" name="_url" value="https://tractionfactory.co/contact/activate/">
+    <input type="hidden" name="_subject" value="Traction Factory / FormSubmit activation test">
+    <input type="hidden" name="name" value="Traction Factory website setup">
+    <input type="hidden" name="email" value="hello@tractionfactory.co">
+    <input type="hidden" name="message" value="This is a setup-only test with no visitor data.">
+    <button type="submit" class="button button-primary">Send activation test ↗</button>
+  </form>
+  <p class="form-disclosure">FormSubmit is a third-party service. This test uses the company mailbox only and does not collect visitor information. <a href="https://formsubmit.co/help">FormSubmit setup help</a>.</p>
+</div></section>
