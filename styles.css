@@ -696,3 +696,9 @@ footer { padding: 40px 0 51px; background: var(--paper); }
   .service-decision-actions .button { width: 100%; }
   .article-end-actions { flex-direction: column; }
 }
+
+/* Keep the optional anti-spam honeypot out of the visual and keyboard flow. */
+.enquiry-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.activation-form { margin: 32px 0 18px; }
+.activation-form .button { justify-self: start; }
+.form-disclosure a { text-decoration: underline; text-underline-offset: 3px; }
