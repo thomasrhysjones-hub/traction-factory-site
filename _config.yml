@@ -23,6 +23,11 @@ defaults:
 # To revert if delivery fails: change form_delivery to "mailto".
 form_delivery: "formspree"
 formspree_endpoint: "https://formspree.io/f/mgakpnkg"
+# Tracking remains disabled until a site owner connects an analytics account.
+# Umami Cloud Hobby is free for one website and supports custom events.
+# Set analytics_provider: "umami" and paste the WEBSITE ID from its tracking
+# snippet into umami_website_id to activate.
 analytics_provider: "none"
-# Obtain the current site-specific script URL from Plausible's dashboard.
+umami_website_id: ""
+# Older Plausible integration is retained as an optional paid alternative.
 plausible_script_src: ""

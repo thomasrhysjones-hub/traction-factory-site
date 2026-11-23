@@ -1,12 +1,14 @@
 /* Traction Factory: progressively enhanced article discovery and contact actions.
    No analytics service, cookies, personal data capture or network collection is enabled by this file.
-   Optional Plausible/GA4 events run only if a separately configured provider is present. */
+   Optional Umami/Plausible/GA4 events run only if a configured provider is present. */
 (function () {
   'use strict';
 
   function track(eventName, source, extra) {
     var properties = Object.assign({ source: source || 'unspecified' }, extra || {});
-    if (typeof window.plausible === 'function') {
+    if (window.umami && typeof window.umami.track === 'function') {
+      window.umami.track(eventName, properties);
+    } else if (typeof window.plausible === 'function') {
       window.plausible(eventName, { props: properties });
     } else if (typeof window.gtag === 'function') {
       window.gtag('event', eventName, properties);

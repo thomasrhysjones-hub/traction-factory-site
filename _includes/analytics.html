@@ -1,7 +1,11 @@
 {% comment %}
-Optional analytics integration, deliberately disabled until Plausible account setup.
-Obtain the real script URL shown in your Plausible dashboard before activation.
+Sitewide tracking is OFF unless an approved provider and site ID are configured.
+Umami Cloud documentation: https://docs.umami.is/docs/collect-data
+Data for enquiry text, names, emails and company names must NEVER be put into
+custom analytics events. Domain guard prevents staging traffic in production stats.
 {% endcomment %}
-{% if site.analytics_provider == "plausible" and site.plausible_script_src != empty %}
+{% if site.analytics_provider == "umami" and site.umami_website_id != empty %}
+<script defer src="https://cloud.umami.is/script.js" data-website-id="{{ site.umami_website_id | escape }}" data-domains="tractionfactory.co,www.tractionfactory.co"></script>
+{% elsif site.analytics_provider == "plausible" and site.plausible_script_src != empty %}
 <script defer data-domain="tractionfactory.co" src="{{ site.plausible_script_src | escape }}"></script>
 {% endif %}
