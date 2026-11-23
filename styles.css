@@ -761,3 +761,164 @@ footer { padding: 30px 0 38px; background: var(--paper); }
     margin-top: 23px;
   }
 }
+
+
+/* Internal pages: varied supporting-copy hierarchy, consistent typography.
+   Keep page-specific treatments isolated from the existing iGaming pattern. */
+.services-hero .services-intro,
+.articles-hero .articles-note,
+.about-hero .about-note,
+.ai-landing-hero .ai-landing-note,
+.contact-hero .contact-hero-note,
+.specialist-hero .specialist-note {
+  align-self: center;
+}
+
+.services-intro .eyebrow,
+.about-note .eyebrow,
+.articles-note .eyebrow,
+.ai-landing-note .eyebrow,
+.contact-hero-note .eyebrow {
+  margin: 0 0 12px;
+  font: 500 11px/1.5 var(--detail-font);
+  letter-spacing: .075em;
+  color: var(--orange-dark);
+}
+.services-intro > p:nth-of-type(2),
+.about-note > p:nth-of-type(2),
+.articles-note > p:nth-of-type(2),
+.ai-landing-note > p:nth-of-type(2),
+.contact-hero-note > p:nth-of-type(2),
+.specialist-note > p:first-child {
+  margin: 0 0 14px;
+  font-size: clamp(19px, 1.7vw, 22px);
+  line-height: 1.42;
+  letter-spacing: -.018em;
+  font-weight: 500;
+  color: var(--ink);
+}
+.services-intro > p:last-child,
+.about-note > p:last-child,
+.articles-note > p:last-child,
+.ai-landing-note > p:nth-of-type(3),
+.contact-hero-note > p:last-child,
+.specialist-note > p:last-child {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* Services: an open, ruled introduction rather than another card. */
+.services-hero .services-intro {
+  border-left: 0;
+  border-top: 3px solid var(--orange);
+  padding: 18px 0 0;
+}
+.services-overview .small-section-head > p {
+  border-left: 3px solid var(--ink);
+  padding-left: 17px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink-2);
+  line-height: 1.45;
+}
+
+/* About: a restrained inset, not a testimonial or a claim box. */
+.about-hero .about-note {
+  background: #e9ebe5;
+  border-left: 0;
+  border-top: 3px solid var(--ink);
+  padding: 22px 25px 23px;
+}
+
+/* Articles: editorial typography and a simple top rule. */
+.articles-hero .articles-note {
+  border-left: 0;
+  border-top: 1px solid var(--ink);
+  padding: 19px 0 0;
+}
+.articles-overview .small-section-head > p {
+  border-top: 1px solid var(--line);
+  padding-top: 13px;
+  max-width: 325px;
+  font: 400 13px/1.65 var(--detail-font);
+  color: var(--ink-2);
+}
+
+/* AI: one compact dark inset to counterbalance the large headline. */
+.ai-landing-hero .ai-landing-note {
+  background: var(--dark);
+  border-left: 0;
+  padding: 23px 25px 25px;
+}
+.ai-landing-note .eyebrow { color: #ff8748; }
+.ai-landing-hero .ai-landing-note > p:nth-of-type(2) {
+  color: #fff;
+  font-size: clamp(18px, 1.55vw, 21px);
+}
+.ai-landing-hero .ai-landing-note > p:nth-of-type(3) {
+  color: #d5dbd3;
+}
+.ai-landing-hero .ai-hero-actions { margin-top: 23px; }
+.ai-landing-hero .ai-hero-actions .button { min-height: 44px; }
+.ai-opportunities .small-section-head > p {
+  border-top: 2px solid var(--orange);
+  padding-top: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.45;
+}
+
+/* Contact: a clear, open invitation beside the form's headline. */
+.contact-hero .contact-hero-note {
+  border-left: 3px solid var(--orange);
+  padding: 5px 0 5px 24px;
+}
+
+/* Focused service pages share a restrained commercial brief treatment. */
+.specialist-hero .specialist-note {
+  border-left: 0;
+  border-top: 2px solid var(--orange);
+  padding: 17px 0 0;
+}
+.specialist-overview .small-section-head > p {
+  border-left: 2px solid var(--line);
+  padding-left: 17px;
+  font-size: 18px;
+  color: var(--ink-2);
+  line-height: 1.48;
+}
+
+@media (max-width: 850px) {
+  .services-hero .services-intro,
+  .articles-hero .articles-note,
+  .about-hero .about-note,
+  .ai-landing-hero .ai-landing-note,
+  .contact-hero .contact-hero-note,
+  .specialist-hero .specialist-note { max-width: 680px; }
+}
+
+@media (max-width: 620px) {
+  .services-hero .services-intro,
+  .articles-hero .articles-note,
+  .specialist-hero .specialist-note { padding-top: 16px; }
+  .about-hero .about-note,
+  .ai-landing-hero .ai-landing-note { padding: 19px 21px 21px; }
+  .contact-hero .contact-hero-note { padding-left: 19px; }
+  .services-intro > p:nth-of-type(2),
+  .about-note > p:nth-of-type(2),
+  .articles-note > p:nth-of-type(2),
+  .ai-landing-note > p:nth-of-type(2),
+  .contact-hero-note > p:nth-of-type(2),
+  .specialist-note > p:first-child { font-size: 19px; }
+  .services-overview .small-section-head > p,
+  .articles-overview .small-section-head > p,
+  .ai-opportunities .small-section-head > p,
+  .specialist-overview .small-section-head > p {
+    display: block;
+    margin-top: 22px;
+    font-size: 16px;
+  }
+}
