@@ -2,11 +2,12 @@
 
 ## What is active now
 
-- Contextual site buttons lead to `/contact/?topic=...&source=...`.
-- The contact page suggests a suitable enquiry subject and prepares a draft in the visitor's own email application.
-- When the visitor sends that email, its subject includes the entry source (for example `[home-hero]` or `[igaming-page]`). This is **manual, inbox-based attribution**, not a conversion analytics system.
-- The visitor's form text is not sent to, or stored by, the website. Without JavaScript, the form falls back to a `mailto:` action.
-- No tracking cookies, external analytics scripts, or background data collection are enabled in this release.
+- Site CTAs lead to `/contact/?topic=...&source=...`.
+- The contact form uses the site-owner-provided Formspree endpoint `https://formspree.io/f/mgakpnkg` to receive native HTTPS POST submissions.
+- Formspree processes and stores submitted contact details and message content. The site includes an explicit disclosure and a direct email alternative.
+- A submitted form carries a subject with the entry source (for example `[home-hero]` or `[igaming-page]`) when JavaScript is enabled.
+- **Delivery remains unverified** until a test submission is confirmed in both Formspree and the receiving mailbox.
+- Analytics tracking remains disabled (`analytics_provider: "none"`); source tagging is not the same as analytics attribution.
 
 ## Optional provider hooks (not yet active)
 
@@ -20,7 +21,7 @@ Supported event names:
 | `email_click` | Visitor selects direct email link | source |
 | `linkedin_click` | Visitor selects LinkedIn contact | source |
 | `enquiry_compose` | Visitor prepares an email in the visitor's own email app | source, topic |
-| `enquiry_submit_attempt` | Visitor attempts third-party form submission (only when verified form delivery is later activated) | source, topic |
+| `enquiry_submit_attempt` | Visitor attempts Formspree form submission. Not proof of receipt | source, topic |
 | `article_filter` | Visitor chooses an article topic | source, topic |
 | `article_share` | Visitor selects a share link | source |
 | `internal_navigation` | Visitor clicks selected proof-to-about link | source |
@@ -41,8 +42,8 @@ To enable analytics, follow `OPERATIONS.md` and the `_includes/analytics.html` s
 - `/contact/?topic=studio&source=igaming-page` should preselect studio distribution.
 - `/contact/?topic=ai&source=ai-page` should preselect AI in iGaming.
 - `/articles/` should show all topics before filtering, and a count after JavaScript initializes.
-- A contact form submission should **open the visitor's email composer**, not show a false “message sent” confirmation.
+- A contact form submission should POST to Formspree, then show the provider's response; confirm the test is in the Formspree dashboard and mailbox. Do not treat an attempt as success.
 
 ## Activation dependencies
 
-Formspree form delivery and Plausible script wiring are controlled by `_config.yml` and default to OFF. See `OPERATIONS.md` for the activation procedure, verification checklist and what must not be reported as a converted lead.
+Formspree form delivery is ON using the site-owner endpoint. Plausible analytics is still OFF. See `OPERATIONS.md` for the delivery test and what must not be reported as a converted lead.
