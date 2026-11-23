@@ -924,8 +924,10 @@ footer { padding: 30px 0 38px; background: var(--paper); }
 }
 
 
-/* About: former-career wordmarks without implying Traction Factory clients.
-   These are restrained typographic marks, not copies of protected logo artwork. */
+
+/* About page: logos supplied by founder, in one local AVIF sprite.
+   Grid cells are genuine brand marks, not synthetic typographic substitutes.
+   The gallery identifies previous career experience, not consultancy clients. */
 .career-history {
   margin-top: 45px;
   padding-top: 25px;
@@ -947,58 +949,47 @@ footer { padding: 30px 0 38px; background: var(--paper); }
 }
 .career-marks {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  border-top: 1px solid var(--line);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
 }
 .career-marks > div {
   min-width: 0;
-  min-height: 92px;
-  padding: 18px 16px;
+  min-height: 0;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+  background: var(--paper);
 }
-.career-wordmark {
-  display: inline-block;
-  color: #424840;
-  font-family: var(--body-font);
-  font-size: clamp(18px, 1.75vw, 24px);
-  font-weight: 600;
-  line-height: 1.04;
-  letter-spacing: -.03em;
-  white-space: nowrap;
-}
-.career-wordmark small {
+.career-logo {
   display: block;
-  font-size: .45em;
-  font-weight: 600;
-  letter-spacing: .09em;
-  margin-top: 4px;
+  width: 100%;
+  aspect-ratio: 400 / 128;
+  background-image: url('/assets/career-logos.avif');
+  background-size: 300% 300%;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
 }
-.wordmark-playtech { font-weight: 600; font-style: italic; letter-spacing: -.055em; }
-.wordmark-amaya { letter-spacing: .115em; font-weight: 500; }
-.wordmark-hero { font-weight: 700; letter-spacing: .075em; }
-.wordmark-comeon { font-weight: 700; letter-spacing: -.065em; }
-.wordmark-comeon small { letter-spacing: -.01em; font-size: .63em; margin-top: 0; }
-.wordmark-quickspin { font-size: clamp(16px, 1.55vw, 21px); letter-spacing: .03em; }
-.wordmark-gamesglobal { font-size: clamp(15px, 1.45vw, 20px); letter-spacing: .07em; }
-.wordmark-yolted { letter-spacing: .1em; font-weight: 600; }
-.wordmark-growthgurus { font-size: clamp(15px, 1.4vw, 19px); letter-spacing: -.02em; }
+.career-logo-playtech { background-position: 0% 0%; }
+.career-logo-amaya { background-position: 50% 0%; }
+.career-logo-hero { background-position: 100% 0%; }
+.career-logo-comeon { background-position: 0% 50%; }
+.career-logo-quickspin { background-position: 50% 50%; }
+.career-logo-gamesglobal { background-position: 100% 50%; }
+.career-logo-yolted { background-position: 0% 100%; }
+.career-logo-synalogik { background-position: 50% 100%; }
+.career-logo-growthgurus { background-position: 100% 100%; }
 
 @media (max-width: 850px) {
   .career-marks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .career-history { margin-top: 34px; }
-  .career-wordmark { font-size: 22px; }
-  .wordmark-quickspin, .wordmark-gamesglobal, .wordmark-growthgurus { font-size: 19px; }
+  .career-marks > div { min-height: 77px; }
 }
 @media (max-width: 620px) {
   .career-history { margin-top: 30px; padding-top: 20px; }
   .career-history-header { align-items: start; flex-direction: column; gap: 7px; }
-  .career-marks > div { min-height: 76px; padding: 14px 10px; }
-  .career-wordmark { font-size: 19px; }
-  .wordmark-quickspin, .wordmark-gamesglobal, .wordmark-growthgurus { font-size: 15px; }
+  .career-marks > div { min-height: 78px; }
 }
