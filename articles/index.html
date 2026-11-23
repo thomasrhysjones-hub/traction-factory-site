@@ -14,16 +14,28 @@ permalink: /articles/
 <section class="section section-tight">
   <div class="shell">
     <div class="small-section-head"><h2>Latest articles.</h2><p>By Thomas Rhys Jones, founder of Traction Factory.</p></div>
-    <div class="article-list">
+    <div class="article-filter-wrap" aria-label="Filter articles by topic">
+      <div class="article-filters" role="group" aria-label="Article topic">
+        <button type="button" class="article-filter" data-topic-filter="all" aria-pressed="true">All articles</button>
+        {% assign article_topics = site.posts | map: 'category' | uniq | sort %}
+        {% for topic in article_topics %}
+        {% if topic and topic != empty %}
+        <button type="button" class="article-filter" data-topic-filter="{{ topic | escape }}" aria-pressed="false">{{ topic | escape }}</button>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <p class="article-filter-count" id="article-filter-count" aria-live="polite"></p>
+    </div>
+    <div class="article-list" id="article-results">
       {% for post in site.posts %}
-      <div class="article-entry">
+      <div class="article-entry" data-article-category="{{ post.category | escape }}">
         <a class="article-teaser" href="{{ post.url | relative_url }}">
           <span class="article-category">{{ post.category | escape }} <span aria-hidden="true">·</span> {{ post.date | date: '%-d %b %Y' }}</span>
           <h3>{{ post.title | escape }}</h3>
           <p>{{ post.description | escape }}</p>
           <span class="article-arrow" aria-hidden="true">↗</span>
         </a>
-        <a class="article-share-link" href="https://www.linkedin.com/sharing/share-offsite/?url={{ post.url | absolute_url | url_encode }}" target="_blank" rel="noopener noreferrer" aria-label="Share {{ post.title | escape }} on LinkedIn">Share on LinkedIn ↗</a>
+        <a class="article-share-link" data-track="article_share" data-source="articles-list" href="https://www.linkedin.com/sharing/share-offsite/?url={{ post.url | absolute_url | url_encode }}" target="_blank" rel="noopener noreferrer" aria-label="Share {{ post.title | escape }} on LinkedIn">Share on LinkedIn ↗</a>
       </div>
       {% endfor %}
     </div>

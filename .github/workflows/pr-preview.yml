@@ -1,0 +1,61 @@
+name: Preview pull requests (isolated from production)
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+# No deploy-pages action is used. Generated HTML is committed to a separate
+# preview-pr-N branch and served through a development-only HTML mirror.
+# Production at tractionfactory.co is never touched by this workflow.
+permissions:
+  contents: write
+
+concurrency:
+  group: preview-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build-preview:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    env:
+      PREVIEW_BRANCH: preview-pr-${{ github.event.pull_request.number }}
+      PREVIEW_BASE: https://raw.githack.com/${{ github.repository }}/preview-pr-${{ github.event.pull_request.number }}
+      PREVIEW_PR: ${{ github.event.pull_request.number }}
+    steps:
+      - name: Check out PR's proposed source
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Render Jekyll without publishing to GitHub Pages
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Prepare mirror-safe pages and block search indexing
+        run: python3 .github/scripts/prepare-preview.py
+
+      - name: Publish preview to its own orphan branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/pr-preview-output"
+          cp -a _site/. "$RUNNER_TEMP/pr-preview-output/"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan "$PREVIEW_BRANCH"
+          git rm -rf --ignore-unmatch .
+          git clean -fdx
+          cp -a "$RUNNER_TEMP/pr-preview-output/." .
+          touch .nojekyll
+          git add -A
+          git commit -m "Rendered preview for PR #${PREVIEW_PR}"
+          git push --force origin "HEAD:refs/heads/$PREVIEW_BRANCH"
+
+      - name: Share preview link
+        run: |
+          echo "### Review URL" >> "$GITHUB_STEP_SUMMARY"
+          echo "$PREVIEW_BASE/" >> "$GITHUB_STEP_SUMMARY"
+          echo "This is a development mirror of the PR, not the production website." >> "$GITHUB_STEP_SUMMARY"

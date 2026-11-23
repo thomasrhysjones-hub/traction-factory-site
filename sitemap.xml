@@ -8,6 +8,7 @@ layout: null
   <url><loc>https://tractionfactory.co/igaming-consultancy/</loc></url>
   <url><loc>https://tractionfactory.co/ai-in-igaming/</loc></url>
   <url><loc>https://tractionfactory.co/about/</loc></url>
+  <url><loc>https://tractionfactory.co/contact/</loc></url>
   <url><loc>https://tractionfactory.co/articles/</loc></url>
   {% for post in site.posts %}
   <url>
