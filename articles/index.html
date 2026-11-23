@@ -5,7 +5,8 @@ seo_title: iGaming & Commercial Growth Articles | Traction Factory
 description: Practical articles on iGaming distribution, partnerships, commercial leadership, AI in iGaming, affiliate acquisition and growth, written by Thomas Rhys Jones.
 permalink: /articles/
 ---
-<section class="inner-hero articles-hero">
+<section class="inner-hero tf-photo-hero articles-hero">
+  <img class="tf-page-hero-art" src="/assets/page-heroes/articles.avif" alt="" width="900" height="600" decoding="async" fetchpriority="high">
   <div class="shell inner-hero-grid">
     <div><p class="eyebrow">Articles &amp; perspectives</p><h1>Ideas from<br><span>doing the job.</span></h1></div>
     <aside class="inner-side articles-note" aria-label="Editorial perspective"><p class="eyebrow">The perspective</p><p>Commercial questions, industry economics, practical AI and lessons picked up along the way.</p><p>Written for people who have to make the decisions, not just talk about them.</p></aside>
@@ -30,6 +31,7 @@ permalink: /articles/
       {% for post in site.posts %}
       <div class="article-entry" data-article-category="{{ post.category | escape }}">
         <a class="article-teaser" href="{{ post.url | relative_url }}">
+          <img class="tf-article-cover" src="{% include article-art.html post=post %}" alt="" width="900" height="600" loading="lazy" decoding="async">
           <span class="article-category">{{ post.category | escape }} <span aria-hidden="true">·</span> {{ post.date | date: '%-d %b %Y' }}</span>
           <h3>{{ post.title | escape }}</h3>
           <p>{{ post.description | escape }}</p>

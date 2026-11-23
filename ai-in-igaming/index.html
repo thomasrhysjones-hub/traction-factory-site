@@ -5,7 +5,8 @@ seo_title: "AI in iGaming: Real Uses, Risks & Commercial ROI | Traction Factory"
 description: "A practical guide to AI in iGaming: commercial use cases, data and integration challenges, human oversight and how to measure real business value."
 permalink: /ai-in-igaming/
 ---
-<section class="inner-hero ai-landing-hero">
+<section class="inner-hero tf-photo-hero ai-landing-hero">
+  <img class="tf-page-hero-art" src="/assets/page-heroes/ai.avif" alt="" width="900" height="600" decoding="async" fetchpriority="high">
   <div class="shell inner-hero-grid">
     <div>
       <p class="eyebrow">AI in iGaming / A practical perspective</p>
@@ -79,7 +80,8 @@ permalink: /ai-in-igaming/
       {% assign ai_count = 0 %}
       {% for post in site.posts %}
       {% if post.category == 'AI in iGaming' and ai_count < 3 %}
-      <a class="article-teaser" href="{{ post.url | relative_url }}"><span class="article-category">{{ post.category | escape }}</span><h3>{{ post.title | escape }}</h3><p>{{ post.description | escape }}</p><span class="article-arrow" aria-hidden="true">↗</span></a>
+      <a class="article-teaser" href="{{ post.url | relative_url }}">
+          <img class="tf-article-cover" src="{% include article-art.html post=post %}" alt="" width="900" height="600" loading="lazy" decoding="async"><span class="article-category">{{ post.category | escape }}</span><h3>{{ post.title | escape }}</h3><p>{{ post.description | escape }}</p><span class="article-arrow" aria-hidden="true">↗</span></a>
       {% assign ai_count = ai_count | plus: 1 %}
       {% endif %}
       {% endfor %}

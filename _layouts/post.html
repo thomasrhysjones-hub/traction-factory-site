@@ -3,7 +3,8 @@ layout: default
 ---
 <article>
   <header class="inner-hero post-hero">
-    <div class="shell">
+    <div class="shell tf-post-hero-grid">
+      <div class="tf-post-intro">
       {% if page.category == 'AI in iGaming' %}<a class="breadcrumb" href="/ai-in-igaming/">← AI in iGaming</a>{% else %}<a class="breadcrumb" href="/articles/">← All articles</a>{% endif %}
       <p class="eyebrow">{{ page.category | escape }}</p>
       <h1>{{ page.title | escape }}</h1>
@@ -12,6 +13,8 @@ layout: default
       <div class="hero-actions">
         <a class="button button-primary article-share-hero" data-track="article_share" data-source="article-top" href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url | url_encode }}" target="_blank" rel="noopener noreferrer" aria-label="Share this article on LinkedIn">Share on LinkedIn ↗</a>
       </div>
+      </div>
+      <img class="tf-post-cover" src="{% include article-art.html post=page %}" alt="" width="900" height="600" decoding="async" fetchpriority="high">
     </div>
   </header>
   <div class="shell article-shell">
@@ -56,6 +59,7 @@ layout: default
         {% for post in site.posts %}
         {% if post.url != page.url and post.category == page.category and related_count < 2 %}
         <a class="article-teaser" href="{{ post.url | relative_url }}">
+          <img class="tf-article-cover" src="{% include article-art.html post=post %}" alt="" width="900" height="600" loading="lazy" decoding="async">
           <span class="article-category">{{ post.category | escape }}</span>
           <h3>{{ post.title | escape }}</h3>
           <p>{{ post.description | escape }}</p>
@@ -68,6 +72,7 @@ layout: default
         {% for post in site.posts %}
         {% if post.url != page.url and post.category != page.category and related_count < 2 %}
         <a class="article-teaser" href="{{ post.url | relative_url }}">
+          <img class="tf-article-cover" src="{% include article-art.html post=post %}" alt="" width="900" height="600" loading="lazy" decoding="async">
           <span class="article-category">{{ post.category | escape }}</span>
           <h3>{{ post.title | escape }}</h3>
           <p>{{ post.description | escape }}</p>

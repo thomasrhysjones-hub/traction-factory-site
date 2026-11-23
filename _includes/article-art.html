@@ -1,0 +1,25 @@
+{%- assign tf_non_ai_count = 0 -%}
+{%- assign tf_ai_count = 0 -%}
+{%- assign tf_cover = '/assets/home-redesign/article-1.webp' -%}
+{%- for tf_candidate in site.posts -%}
+  {%- if tf_candidate.url == include.post.url -%}
+    {%- if tf_candidate.category == 'AI in iGaming' and tf_ai_count == 0 -%}
+      {%- assign tf_cover = '/assets/home-redesign/article-2.webp' -%}
+    {%- elsif tf_candidate.category != 'AI in iGaming' and tf_non_ai_count == 0 -%}
+      {%- assign tf_cover = '/assets/home-redesign/article-1.webp' -%}
+    {%- elsif tf_candidate.category != 'AI in iGaming' and tf_non_ai_count == 1 -%}
+      {%- assign tf_cover = '/assets/home-redesign/article-3.webp' -%}
+    {%- else -%}
+      {%- assign tf_art_choices = 'services,igaming,about,leadership,distribution,account-growth,ai,contact,articles' | split: ',' -%}
+      {%- assign tf_art_index = forloop.index0 | minus: 3 | modulo: 9 -%}
+      {%- assign tf_cover = tf_art_choices[tf_art_index] | prepend: '/assets/page-heroes/' | append: '.avif' -%}
+    {%- endif -%}
+    {%- break -%}
+  {%- endif -%}
+  {%- if tf_candidate.category == 'AI in iGaming' -%}
+    {%- assign tf_ai_count = tf_ai_count | plus: 1 -%}
+  {%- else -%}
+    {%- assign tf_non_ai_count = tf_non_ai_count | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+{{- tf_cover -}}
