@@ -4,20 +4,21 @@
 
 - **Formspree** is already configured for visitor enquiries in `_config.yml`. Keep it intact.
 - **Google Search Console:** A property has previously been used by the owner, but its current Search performance or URL indexing data has NOT been read or verified here. No Search Console credentials are stored in this repository.
-- **Website analytics:** Umami Cloud integration is prepared, but `analytics_provider: "none"` means **no tracker is active** until the owner creates a site and supplies a website ID.
+- **Website analytics:** The owner provided Umami Website ID `27ea7107-ec4b-43ff-b38d-032f3d5aaad9`. The site is configured to load Umami on the production domain. **Real data collection is subject to a successful GitHub Pages deployment and a dashboard check.**
 - **Plausible** is available as an alternative, but its cloud subscription is not needed to start measuring this site.
 
-## 1. Activate free Umami Cloud (one-time)
+## 1. Verify active Umami Cloud tracking
 
 Umami Cloud's Hobby tier is free for one website, with 100,000 included events per month and six months' retention at the time of setup. A pageview, custom event and each stored event property contribute to usage. Check the provider's current terms before signing up.
 
-1. Open `https://cloud.umami.is/signup` and create an account. Select the **EU** data region if preferred for European audience data; the region applies to analytics storage and is not a complete guarantee that every subprocessor runs in the EU.
-2. Select the free **Hobby** plan, not a paid trial.
-3. Add a website with the hostname `tractionfactory.co`. Do not enter `https://` or a trailing path unless the UI explicitly asks for a full URL.
-4. Open the site's edit / Tracking code area, and copy its `data-website-id` value (a UUID). This is a **public website identifier**, not an account API key or password.
-5. In `_config.yml`, set `analytics_provider: "umami"` and set `umami_website_id` to the actual value. The site-wide `_includes/analytics.html` already loads Umami's current Cloud script in both the homepage and Jekyll layout. It uses `data-domains="tractionfactory.co,www.tractionfactory.co"` to keep staging-preview visits out of the production stats.
-6. Deploy the two settings together, then open an incognito browser and visit two pages on the production site. Confirm the dashboard registers visits and pageviews. Use your browser's Network panel to troubleshoot a blocked or missing script if required.
-7. Optionally exclude your own visits using Umami's documented visitor exclusion options. Do not add visitor names or other identifiable data to events.
+The site owner has already supplied the Umami website ID and the GitHub configuration has been updated. Do not create another Umami website.
+
+1. Confirm the most recent **Publish Traction Factory to GitHub Pages** workflow finished successfully for the merge commit.
+2. Open `https://tractionfactory.co/` in a private browser window with tracking protection/extensions disabled for this verification.
+3. View source and find `https://cloud.umami.is/script.js` with `data-website-id="27ea7107-ec4b-43ff-b38d-032f3d5aaad9"`. The tracker has a production-only `data-domains` guard.
+4. Visit `/services/` and `/contact/`, then open the Umami Cloud dashboard and confirm that these pageviews appear.
+5. Click an instrumented **Talk to us** CTA, then check Umami's Events section for a `contact_intent` event. Do not submit a fake business lead just to test event tracking.
+6. If data doesn't arrive, check that the site actually deployed, the script loaded, Umami's site domain is correct, and browser privacy tools didn't block requests.
 
 ### Existing event hooks
 
