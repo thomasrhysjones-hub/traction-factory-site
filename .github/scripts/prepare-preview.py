@@ -9,6 +9,7 @@ import re
 
 root = Path("_site")
 base = os.environ["PREVIEW_BASE"].rstrip("/")
+pr_number = os.environ["PREVIEW_PR"]
 if not root.is_dir() or not (root / "index.html").exists():
     raise SystemExit("Jekyll output is missing _site/index.html")
 
@@ -19,7 +20,7 @@ preview_note = (
     'width:max-content;max-width:calc(100vw - 24px);padding:9px 13px;'
     'background:#202623;color:white;border:2px solid #fc5901;'
     'box-shadow:0 2px 14px #0004;font:600 12px/1.4 Arial,sans-serif">'
-    'Traction Factory · PR #3 preview · Not live'
+    f'Traction Factory · PR #{pr_number} preview · Not live'
     '</div>'
 )
 
