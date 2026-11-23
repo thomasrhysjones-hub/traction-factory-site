@@ -702,3 +702,62 @@ footer { padding: 30px 0 38px; background: var(--paper); }
 .activation-form { margin: 32px 0 18px; }
 .activation-form .button { justify-self: start; }
 .form-disclosure a { text-decoration: underline; text-underline-offset: 3px; }
+
+
+/* iGaming page: bring the supporting right-hand copy into the visual hierarchy.
+   Scoped to this page so other editorial layouts remain unchanged. */
+.igaming-hero .igaming-hero-note {
+  background: #e9ebe5;
+  border-left: 3px solid var(--orange);
+  padding: 22px 25px 23px;
+  max-width: none;
+}
+.igaming-hero .inner-side .igaming-hero-label {
+  margin: 0 0 11px;
+  color: var(--orange-dark);
+  font-family: var(--detail-font);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: .075em;
+}
+.igaming-hero .inner-side .igaming-hero-lead {
+  margin: 0 0 15px;
+  color: var(--ink);
+  font-size: clamp(19px, 1.6vw, 22px);
+  line-height: 1.38;
+  font-weight: 500;
+  letter-spacing: -.015em;
+}
+.igaming-hero .inner-side .igaming-hero-detail {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 15px;
+  line-height: 1.56;
+}
+.igaming-overview .small-section-head > p {
+  max-width: 400px;
+  margin-bottom: 3px;
+  border-top: 3px solid var(--orange);
+  padding-top: 17px;
+  color: var(--ink);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.47;
+  letter-spacing: -.014em;
+}
+@media (max-width: 850px) {
+  .igaming-hero .igaming-hero-note { max-width: 680px; }
+  .igaming-overview .small-section-head > p { max-width: 560px; }
+}
+@media (max-width: 620px) {
+  .igaming-hero .igaming-hero-note { padding: 19px 21px 21px; }
+  .igaming-hero .inner-side .igaming-hero-lead { font-size: 19px; }
+  .igaming-hero .inner-side .igaming-hero-detail { font-size: 14px; }
+  .igaming-overview .small-section-head > p {
+    display: block;
+    font-size: 17px;
+    padding-top: 13px;
+    margin-top: 23px;
+  }
+}
