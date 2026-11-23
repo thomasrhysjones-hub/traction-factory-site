@@ -11,32 +11,29 @@ After every merge:
 4. Confirm the intended homepage text and article filters render and that `/sitemap.xml` includes new service pages.
 5. Check the chosen enquiry path on a real mobile browser. If anything fails, use the existing direct `mailto:hello@tractionfactory.co` link as the fallback while repairing the deployment.
 
-## Phase 1: Verified form delivery (Formspree)
+## Phase 1: Formspree live endpoint and delivery test
 
-The original FormSubmit setup is retired due to reported activation failures. `/contact/activate/` no longer submits to FormSubmit.
+The site owner supplied the public endpoint `https://formspree.io/f/mgakpnkg` on 23 November 2026. The site is configured with `form_delivery: "formspree"` and renders a native HTTPS POST to this endpoint. The older FormSubmit activation service remains retired.
 
-The public contact form **continues to prepare an email draft** while `form_delivery: "mailto"` in `_config.yml`. No third-party visitor data submission is enabled by default.
+**Status:** Endpoint configured. End-to-end delivery is NOT yet confirmed. The public direct-email link remains available if the form fails.
 
-Formspree is the prepared replacement and needs an actual form endpoint, generated in the business owner's account. Never invent or commit a placeholder as a working endpoint.
+After GitHub Pages has successfully deployed:
+1. Open `https://tractionfactory.co/contact/?topic=general&source=internal-test`.
+2. Enter a real reply-to email, choose "Something else", and submit a clearly labelled message such as **TEST ONLY - Traction Factory contact form**. Do not include credentials or confidential data.
+3. Confirm Formspree displays its standard submission-success page. On a free plan, a custom on-site thank-you redirect may not be available.
+4. Open the Formspree dashboard for form ID `mgakpnkg`, confirm the test appears and the submitted fields are intact.
+5. Confirm the notification email arrives at `hello@tractionfactory.co`, checking spam and the configured notification destination if absent.
+6. Check whether the email's Reply-To targets the test sender and the subject includes `[internal-test]`. The hidden `subject` input is populated by `site.js`.
+7. Only after dashboard receipt and inbox delivery are both established should the enquiry system be considered verified.
 
-1. Visit `https://formspree.io/` and register for a Free account, using the company mailbox if preferred.
-2. Create a form called **Traction Factory enquiries** in the Formspree dashboard.
-3. In its settings, set the notification destination to `hello@tractionfactory.co`. Verify any email or account ownership prompts requested by Formspree.
-4. Copy the actual HTTPS form endpoint from the **Integration** tab. It has a structure similar to `https://formspree.io/f/xxxxxxxx`. Do not send an API secret; this endpoint is meant to appear in public HTML.
-5. Put that URL into `formspree_endpoint` in `_config.yml` and change `form_delivery` from `"mailto"` to `"formspree"`. The site template has two independent guards: the delivery value and a nonempty endpoint.
-6. Deploy a small reviewed change, then submit a clearly labelled internal test from `/contact/`. Confirm the submission is visible in the Formspree dashboard **and** its notification arrives in `hello@tractionfactory.co`.
-7. Verify topic/source tagging, reply-to email, form spam settings, and the built-in Formspree thank-you page. The free plan does not include a custom thank-you redirect.
-8. Only after both dashboard and mailbox checks pass should the rollout be considered complete.
+If testing fails: immediately switch `form_delivery` back to `"mailto"` in `_config.yml`, deploy a reviewed fix, and keep direct email available. Investigate Formspree's domain restrictions and form settings.
 
-The fallback direct email link must remain available if the external form service has issues.
+Formspree submissions collect the entered contact fields and store/process them at Formspree. The public form discloses this; do not claim submissions are website-only or untracked.
 
-Formspree offers a free tier with a monthly submission cap, 30-day submission history and basic spam protection. Review actual limits, privacy rules and data handling before enabling the integration.
-
-**Important:** `enquiry_submit_attempt` means a browser attempted a POST, not that Formspree delivered it. Only a confirmed submission or received message counts as a lead.
+**Important:** `enquiry_submit_attempt` is only an attempted POST, not confirmation that Formspree received or delivered it.
 
 Official references:
 - `https://help.formspree.io/articles/building-your-form/building-an-html-form`
-- `https://help.formspree.io/articles/account-management/account-limits`
 - `https://help.formspree.io/articles/building-your-form/email-subject-line/`
 
 ## Phase 2: Website analytics
@@ -65,7 +62,7 @@ Plausible setup: `https://plausible.io/docs/plausible-script`. A separate Plausi
 ## Not yet completed
 
 - Confirming the public GitHub Pages deployment using a fresh browser session
-- Creating and testing a Formspree form and confirming receipt in hello@tractionfactory.co
+- Confirming Formspree delivery through its dashboard and at hello@tractionfactory.co
 - Registering or connecting a Plausible account and validating real events
 - Reading private Google Search Console performance data
 
