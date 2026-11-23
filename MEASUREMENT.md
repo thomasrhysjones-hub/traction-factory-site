@@ -25,7 +25,7 @@ Supported event names:
 | `article_share` | Visitor selects a share link | source |
 | `internal_navigation` | Visitor clicks selected proof-to-about link | source |
 
-Events include no names, company names, email addresses or free-text enquiry content. A composed email is **not** a sent enquiry. A `enquiry_submit_attempt` is only an attempted submission, not confirmed delivery. Do not report either as confirmed leads.
+Events include no names, company names, email addresses or free-text enquiry content. A composed email is **not** a sent enquiry. An `enquiry_submit_attempt` is only an attempted submission, not confirmed delivery. Do not report either as confirmed leads.
 
 To enable analytics, follow `OPERATIONS.md` and the `_includes/analytics.html` switch. The include is already used by both `index.html` and `_layouts/default.html`, so do not paste the same tracking code into both templates separately. Test a visit and a contact click in the provider dashboard before claiming collection is live.
 
@@ -45,4 +45,4 @@ To enable analytics, follow `OPERATIONS.md` and the `_includes/analytics.html` s
 
 ## Activation dependencies
 
-FormSubmit preparation and Plausible script wiring are controlled by `_config.yml` and default to OFF. See `OPERATIONS.md` for the activation procedure, verification checklist and what must not be reported as a converted lead.
+Formspree form delivery and Plausible script wiring are controlled by `_config.yml` and default to OFF. See `OPERATIONS.md` for the activation procedure, verification checklist and what must not be reported as a converted lead.
