@@ -183,7 +183,7 @@
             {% endif %}
             <span class="tf-article-category">{{ post.category | escape }} · {{ post.date | date: '%-d %b %Y' }}</span>
             <h3>{{ post.title | escape }}</h3>
-            <p>{{ post.description | escape | truncate: 150 }}</p>
+            <p>{{ post.description | truncate: 150 | escape }}</p>
             <span class="tf-article-arrow" aria-hidden="true">↗</span>
           </a>
           {% assign non_ai_shown = non_ai_shown | plus: 1 %}
@@ -196,7 +196,7 @@
             <img src="/assets/home-redesign/article-2.webp" alt="" width="840" height="510" loading="lazy" decoding="async">
             <span class="tf-article-category">{{ post.category | escape }} · {{ post.date | date: '%-d %b %Y' }}</span>
             <h3>{{ post.title | escape }}</h3>
-            <p>{{ post.description | escape | truncate: 150 }}</p>
+            <p>{{ post.description | truncate: 150 | escape }}</p>
             <span class="tf-article-arrow" aria-hidden="true">↗</span>
           </a>
           {% assign ai_shown = ai_shown | plus: 1 %}
