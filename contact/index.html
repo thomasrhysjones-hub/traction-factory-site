@@ -22,8 +22,34 @@ permalink: /contact/
     <div>
       <p class="eyebrow">A simple starting point</p>
       <h2 class="contact-page-heading">What needs to change?</h2>
-      <p class="contact-page-intro">Choose a subject and add a little context. This prepares an email to <a href="mailto:hello@tractionfactory.co">hello@tractionfactory.co</a> in your own email app.</p>
-      <form id="enquiry-builder" class="enquiry-form" action="mailto:hello@tractionfactory.co" method="post" enctype="text/plain">
+      <p class="contact-page-intro">Choose a subject and add a little context.
+        {% if site.form_delivery == 'formsubmit' %}
+        Your enquiry will be sent to <a href="mailto:hello@tractionfactory.co">hello@tractionfactory.co</a> without needing an email application.
+        {% else %}
+        This prepares an email to <a href="mailto:hello@tractionfactory.co">hello@tractionfactory.co</a> in your own email app.
+        {% endif %}
+      </p>
+      {% if site.form_delivery == 'formsubmit' %}
+      <form id="enquiry-builder" class="enquiry-form" action="https://formsubmit.co/hello@tractionfactory.co" method="POST" data-delivery="formsubmit">
+        <input type="hidden" name="_url" value="https://tractionfactory.co/contact/">
+        <input type="hidden" name="_next" value="https://tractionfactory.co/contact/thanks/">
+        <input type="hidden" name="_subject" id="enquiry-subject" value="Traction Factory website enquiry">
+        <input type="hidden" name="source" id="enquiry-source" value="website">
+        <div class="enquiry-honeypot" aria-hidden="true">
+          <label for="enquiry-honey">Leave this empty</label>
+          <input type="text" id="enquiry-honey" name="_honey" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="enquiry-field">
+          <label for="enquiry-name">Your name <span aria-hidden="true">*</span></label>
+          <input id="enquiry-name" name="name" autocomplete="name" maxlength="120" required placeholder="Your name">
+        </div>
+        <div class="enquiry-field">
+          <label for="enquiry-email">Your email <span aria-hidden="true">*</span></label>
+          <input id="enquiry-email" type="email" name="email" autocomplete="email" maxlength="180" required placeholder="you@company.com">
+        </div>
+      {% else %}
+      <form id="enquiry-builder" class="enquiry-form" action="mailto:hello@tractionfactory.co" method="post" enctype="text/plain" data-delivery="mailto">
+      {% endif %}
         <div class="enquiry-field">
           <label for="enquiry-topic">Area of support <span aria-hidden="true">*</span></label>
           <select id="enquiry-topic" name="topic" required>
@@ -54,8 +80,12 @@ permalink: /contact/
             <option value="Exploring options">Exploring options</option>
           </select>
         </div>
-        <button class="button button-primary" type="submit" data-track="enquiry_compose" data-source="contact-builder">Prepare enquiry email ↗</button>
+        <button class="button button-primary" type="submit" data-source="contact-builder">{% if site.form_delivery == 'formsubmit' %}Send enquiry ↗{% else %}Prepare enquiry email ↗{% endif %}</button>
+        {% if site.form_delivery == 'formsubmit' %}
+        <p class="form-disclosure">Your details are used to respond to your enquiry. This form uses <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit</a> to process and deliver messages. Please don't include sensitive personal or confidential information.</p>
+        {% else %}
         <p class="form-disclosure">This opens your email app for you to review and send. No information is submitted to or stored by this website.</p>
+        {% endif %}
       </form>
     </div>
     <aside class="contact-alternatives" aria-label="Other ways to get in touch">
