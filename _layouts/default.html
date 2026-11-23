@@ -24,6 +24,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/internal-redesign.css">
   {% include analytics.html %}
   <script type="application/ld+json">
   {
@@ -53,8 +54,8 @@
   </script>
   {% endif %}
 </head>
-<body>
-  <header class="site-header">
+<body class="tf-inner-page">
+  <header class="site-header tf-inner-header">
     <div class="shell header-inner">
       <a class="brand" href="/" aria-label="Traction Factory home">
         <img src="/traction-factory-logo.png" alt="" width="44" height="44">
@@ -64,9 +65,9 @@
         <a href="/services/"{% if page.url == '/services/' %} aria-current="page"{% endif %}>Services</a>
         <a href="/igaming-consultancy/"{% if page.url == '/igaming-consultancy/' %} aria-current="page"{% endif %}>iGaming</a>
         <a href="/ai-in-igaming/"{% if page.url == '/ai-in-igaming/' or page.category == 'AI in iGaming' %} aria-current="page"{% endif %}>AI in iGaming</a>
-        <a href="/about/"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
-        <a href="/articles/"{% if page.url == '/articles/' or page.layout == 'post' and page.category != 'AI in iGaming' %} aria-current="page"{% endif %}>Articles</a>
-        <a class="nav-cta" href="/contact/" data-track="contact_intent" data-source="site-nav">Talk to us</a>
+          <a href="/articles/"{% if page.url == '/articles/' or page.layout == 'post' and page.category != 'AI in iGaming' %} aria-current="page"{% endif %}>Articles</a>
+      <a href="/about/"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+        <a class="nav-cta" href="/contact/" data-track="contact_intent" data-source="site-nav">Contact</a>
       </nav>
       <details class="mobile-menu">
         <summary>Menu <span aria-hidden="true">+</span></summary>
@@ -77,7 +78,7 @@
           <a href="/ai-in-igaming/">AI in iGaming</a>
         <a href="/about/">About</a>
           <a href="/articles/">Articles</a>
-          <a href="/contact/" data-track="contact_intent" data-source="mobile-nav">Talk to us</a>
+          <a href="/contact/" data-track="contact_intent" data-source="mobile-nav">Contact</a>
         </nav>
       </details>
     </div>
