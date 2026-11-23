@@ -27,7 +27,7 @@ formspree_endpoint: "https://formspree.io/f/mgakpnkg"
 # Umami Cloud Hobby is free for one website and supports custom events.
 # Set analytics_provider: "umami" and paste the WEBSITE ID from its tracking
 # snippet into umami_website_id to activate.
-analytics_provider: "none"
-umami_website_id: ""
+analytics_provider: "umami"
+umami_website_id: "27ea7107-ec4b-43ff-b38d-032f3d5aaad9"
 # Older Plausible integration is retained as an optional paid alternative.
 plausible_script_src: ""
