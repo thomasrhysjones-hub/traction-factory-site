@@ -42,5 +42,16 @@ for path in root.rglob("*.html"):
     path.write_text(markup, encoding="utf-8")
     count += 1
 
+# Preview-host CSS also needs its root-relative images rebased, such as
+# the existing real employer logo sprite referenced from styles.css.
+css_url_pattern = re.compile(r"""(url\(\s*["']?)/(?!/)""", re.IGNORECASE)
+css_count = 0
+for css_path in root.rglob("*.css"):
+    css = css_path.read_text(encoding="utf-8")
+    patched = css_url_pattern.sub(lambda match: match.group(1) + base + "/", css)
+    if patched != css:
+        css_path.write_text(patched, encoding="utf-8")
+        css_count += 1
+
 (root / "robots.txt").write_text("User-agent: *\nDisallow: /\n", encoding="utf-8")
 print(f"Prepared {count} static HTML pages at {base}/")

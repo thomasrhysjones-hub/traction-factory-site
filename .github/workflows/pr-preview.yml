@@ -34,6 +34,9 @@ jobs:
           source: ./
           destination: ./_site
 
+      - name: Fix Jekyll container output permissions
+        run: sudo chown -R "$(id -u):$(id -g)" ./_site
+
       - name: Prepare mirror-safe pages and block search indexing
         run: python3 .github/scripts/prepare-preview.py
 
