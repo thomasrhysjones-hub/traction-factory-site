@@ -1,43 +1,49 @@
----
-layout: default
-title: Articles
-seo_title: iGaming & Commercial Growth Articles | Traction Factory
-description: Practical articles on iGaming distribution, partnerships, commercial leadership, AI in iGaming, affiliate acquisition and growth, written by Thomas Rhys Jones.
-permalink: /articles/
----
-<section class="inner-hero">
-  <div class="shell inner-hero-grid">
-    <div><p class="eyebrow">Articles &amp; perspectives</p><h1>Ideas from<br><span>doing the job.</span></h1></div>
-    <div class="inner-side"><p>Commercial questions, industry economics, practical AI and lessons picked up along the way.</p><p>Written for people who have to make the decisions, not just talk about them.</p></div>
-  </div>
-</section>
-<section class="section section-tight">
-  <div class="shell">
-    <div class="small-section-head"><h2>Latest articles.</h2><p>By Thomas Rhys Jones, founder of Traction Factory.</p></div>
-    <div class="article-filter-wrap" aria-label="Filter articles by topic">
-      <div class="article-filters" role="group" aria-label="Article topic">
-        <button type="button" class="article-filter" data-topic-filter="all" aria-pressed="true">All articles</button>
-        {% assign article_topics = site.posts | map: 'category' | uniq | sort %}
-        {% for topic in article_topics %}
-        {% if topic and topic != empty %}
-        <button type="button" class="article-filter" data-topic-filter="{{ topic | escape }}" aria-pressed="false">{{ topic | escape }}</button>
-        {% endif %}
-        {% endfor %}
-      </div>
-      <p class="article-filter-count" id="article-filter-count" aria-live="polite"></p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>Articles | Traction Factory Preview</title><link rel="stylesheet" href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/styles.css"></head><body><div role="status" style="position:fixed;bottom:12px;left:12px;z-index:99999;max-width:calc(100vw - 24px);background:#202623;color:white;border:2px solid #fc5901;padding:8px 12px;font:600 12px/1.4 Arial,sans-serif">PR #3 preview · Not live</div><header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/" aria-label="Traction Factory home">
+        <img src="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/traction-factory-logo.png" alt="" width="44" height="44">
+        <span>Traction Factory</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/services/" aria-current="page">Services</a>
+        <a href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/igaming-consultancy/" aria-current="page">iGaming</a>
+        <a href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/ai-in-igaming/" aria-current="page">AI in iGaming</a>
+        <a href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/about/" aria-current="page">About</a>
+        <a href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/articles/" aria-current="page">Articles</a>
+        <a class="nav-cta" href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/contact/" data-track="contact_intent" data-source="site-nav">Talk to us</a>
+      </nav>
+      <details class="mobile-menu">
+        <summary>Menu <span aria-hidden="true">+</span></summary>
+        <nav aria-label="Mobile navigation">
+          <a href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/">Home</a>
+          <a href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/services/">Services</a>
+          <a href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/igaming-consultancy/">iGaming</a>
+          <a href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/ai-in-igaming/">AI in iGaming</a>
+        <a href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/about/">About</a>
+          <a href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/articles/">Articles</a>
+          <a href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/contact/" data-track="contact_intent" data-source="mobile-nav">Talk to us</a>
+        </nav>
+      </details>
     </div>
-    <div class="article-list" id="article-results">
-      {% for post in site.posts %}
-      <div class="article-entry" data-article-category="{{ post.category | escape }}">
-        <a class="article-teaser" href="{{ post.url | relative_url }}">
-          <span class="article-category">{{ post.category | escape }} <span aria-hidden="true">·</span> {{ post.date | date: '%-d %b %Y' }}</span>
-          <h3>{{ post.title | escape }}</h3>
-          <p>{{ post.description | escape }}</p>
-          <span class="article-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="article-share-link" data-track="article_share" data-source="articles-list" href="https://www.linkedin.com/sharing/share-offsite/?url={{ post.url | absolute_url | url_encode }}" target="_blank" rel="noopener noreferrer" aria-label="Share {{ post.title | escape }} on LinkedIn">Share on LinkedIn ↗</a>
+  </header><main id="top"><section class="inner-hero"><div class="shell inner-hero-grid"><div><p class="eyebrow">Articles &amp; perspectives</p><h1>Ideas from<br><span>doing the job.</span></h1></div><div class="inner-side"><p>Commercial questions, industry economics, practical AI and lessons picked up along the way.</p><p>Written for people who have to make the decisions, not just talk about them.</p></div></div></section><section class="section section-tight"><div class="shell"><div class="small-section-head"><h2>Latest articles.</h2><p>By Thomas Rhys Jones, founder of Traction Factory.</p></div><div class="article-filter-wrap" aria-label="Filter articles by topic"><div class="article-filters" role="group" aria-label="Article topic"><button type="button" class="article-filter" data-topic-filter="all" aria-pressed="true">All articles</button><button type="button" class="article-filter" data-topic-filter="AI in iGaming" aria-pressed="false">AI in iGaming</button><button type="button" class="article-filter" data-topic-filter="Commercial Growth" aria-pressed="false">Commercial Growth</button><button type="button" class="article-filter" data-topic-filter="iGaming Industry" aria-pressed="false">iGaming Industry</button></div><p class="article-filter-count" id="article-filter-count" aria-live="polite"></p></div><div class="article-list" id="article-results"><div class="article-entry" data-article-category="AI in iGaming"><a class="article-teaser" href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/articles/five-igaming-commercial-processes-to-automate-with-ai/"><span class="article-category">AI in iGaming · 2026-11-20</span><h3>Five iGaming Commercial Processes Worth Automating with AI</h3><p>Five realistic AI and automation use cases for iGaming sales, account management, promotions, onboarding and revenue reporting, with metrics and guardrails.</p><span class="article-arrow" aria-hidden="true">↗</span></a><a class="article-share-link" data-track="article_share" data-source="articles-list" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftractionfactory.co%2Farticles%2Ffive-igaming-commercial-processes-to-automate-with-ai%2F" target="_blank" rel="noopener noreferrer">Share on LinkedIn ↗</a></div><div class="article-entry" data-article-category="AI in iGaming"><a class="article-teaser" href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/articles/ai-wont-fix-your-bad-data/"><span class="article-category">AI in iGaming · 2026-11-20</span><h3>AI Won't Fix Your Bad Data</h3><p>Before adding AI to iGaming reporting or account management, fix the definitions, gaps and ownership issues that can distort commercial decisions.</p><span class="article-arrow" aria-hidden="true">↗</span></a><a class="article-share-link" data-track="article_share" data-source="articles-list" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftractionfactory.co%2Farticles%2Fai-wont-fix-your-bad-data%2F" target="_blank" rel="noopener noreferrer">Share on LinkedIn ↗</a></div><div class="article-entry" data-article-category="AI in iGaming"><a class="article-teaser" href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/articles/why-ai-is-harder-to-implement-in-igaming/"><span class="article-category">AI in iGaming · 2026-11-20</span><h3>Why AI Is Harder to Implement in iGaming Than People Think</h3><p>Fragmented data, commercial complexity, regulation and weak processes make AI adoption in iGaming harder than the demos suggest. Here's what to check.</p><span class="article-arrow" aria-hidden="true">↗</span></a><a class="article-share-link" data-track="article_share" data-source="articles-list" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftractionfactory.co%2Farticles%2Fwhy-ai-is-harder-to-implement-in-igaming%2F" target="_blank" rel="noopener noreferrer">Share on LinkedIn ↗</a></div><div class="article-entry" data-article-category="iGaming Industry"><a class="article-teaser" href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/articles/why-slot-promotions-fail-to-drive-growth/"><span class="article-category">iGaming Industry · 2026-11-19</span><h3>Why Your Slot Promotions Aren't Delivering Real Growth</h3><p>Higher GGR doesn't always mean growth. Learn how slot studios can measure promotional ROI, improve casino lobby positioning and grow operator revenue.</p><span class="article-arrow" aria-hidden="true">↗</span></a><a class="article-share-link" data-track="article_share" data-source="articles-list" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftractionfactory.co%2Farticles%2Fwhy-slot-promotions-fail-to-drive-growth%2F" target="_blank" rel="noopener noreferrer">Share on LinkedIn ↗</a></div><div class="article-entry" data-article-category="Commercial Growth"><a class="article-teaser" href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/articles/why-hiring-more-salespeople-wont-fix-growth/"><span class="article-category">Commercial Growth · 2026-11-13</span><h3>Why Hiring More Salespeople Won't Fix Your Commercial Growth Problem</h3><p>More salespeople won't always fix stalled revenue. Learn why commercial strategy, account management and leadership are the foundations of sustainable growth.</p><span class="article-arrow" aria-hidden="true">↗</span></a><a class="article-share-link" data-track="article_share" data-source="articles-list" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftractionfactory.co%2Farticles%2Fwhy-hiring-more-salespeople-wont-fix-growth%2F" target="_blank" rel="noopener noreferrer">Share on LinkedIn ↗</a></div><div class="article-entry" data-article-category="iGaming Industry"><a class="article-teaser" href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/articles/igaming-aggregation-commercial-costs/"><span class="article-category">iGaming Industry · 2026-11-06</span><h3>What Does iGaming Aggregation Actually Cost?</h3><p>A practical guide to aggregator fees, revenue share, direct integrations and the commercial trade-offs behind game distribution.</p><span class="article-arrow" aria-hidden="true">↗</span></a><a class="article-share-link" data-track="article_share" data-source="articles-list" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftractionfactory.co%2Farticles%2Figaming-aggregation-commercial-costs%2F" target="_blank" rel="noopener noreferrer">Share on LinkedIn ↗</a></div><div class="article-entry" data-article-category="iGaming Industry"><a class="article-teaser" href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/articles/why-igaming-studios-struggle-with-distribution/"><span class="article-category">iGaming Industry · 2026-10-28</span><h3>Why iGaming Studios Struggle to Secure Operator Distribution</h3><p>Getting signed is only the start. The commercial and operational reasons game studios struggle to turn distribution access into active operator revenue.</p><span class="article-arrow" aria-hidden="true">↗</span></a><a class="article-share-link" data-track="article_share" data-source="articles-list" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftractionfactory.co%2Farticles%2Fwhy-igaming-studios-struggle-with-distribution%2F" target="_blank" rel="noopener noreferrer">Share on LinkedIn ↗</a></div><div class="article-entry" data-article-category="Commercial Growth"><a class="article-teaser" href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/articles/building-an-igaming-affiliate-programme/"><span class="article-category">Commercial Growth · 2026-10-16</span><h3>Building an iGaming Affiliate Programme From Scratch</h3><p>The commercial foundations of an iGaming affiliate programme: economics, tracking, partner recruitment, compliance and ongoing account management.</p><span class="article-arrow" aria-hidden="true">↗</span></a><a class="article-share-link" data-track="article_share" data-source="articles-list" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftractionfactory.co%2Farticles%2Fbuilding-an-igaming-affiliate-programme%2F" target="_blank" rel="noopener noreferrer">Share on LinkedIn ↗</a></div></div></div></section></main><section class="section contact-section" id="contact">
+    <div class="shell contact-card">
+      <div>
+        <p class="eyebrow">Start a conversation</p>
+        <h2>Got a commercial problem?</h2>
+        <p>If you're launching, scaling or trying to get a difficult commercial decision moving, get in touch.</p>
       </div>
-      {% endfor %}
+      <div class="contact-actions">
+        <a class="button button-primary" href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/contact/?source=site-footer" data-track="contact_intent" data-source="site-footer">Discuss a project</a>
+        <a class="contact-email" href="mailto:hello@tractionfactory.co">hello@tractionfactory.co</a>
+        <a class="contact-linkedin" href="https://www.linkedin.com/in/thomasrhysjones/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <small>Cyprus · Malta · UK · International</small>
+      </div>
     </div>
-  </div>
-</section>
+  </section><footer>
+    <div class="shell footer-inner">
+      <a class="footer-brand" href="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/"><img src="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/traction-factory-logo.png" alt="" width="33" height="33"><span>Traction Factory</span></a>
+      <p><a class="footer-email" href="mailto:hello@tractionfactory.co">hello@tractionfactory.co</a></p>
+      <p><a class="footer-linkedin" href="https://www.linkedin.com/in/thomasrhysjones/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></p>
+      <p>© <span id="year">2026</span> Traction Factory.</p>
+    </div>
+  </footer><script>document.getElementById('year').textContent=new Date().getFullYear();</script><script src="https://raw.githack.com/thomasrhysjones-hub/traction-factory-site/preview-pr-3/site.js" defer></script></body></html>
