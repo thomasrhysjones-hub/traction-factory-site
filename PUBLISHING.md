@@ -55,3 +55,11 @@ Open the Markdown article, select the edit icon and make your change. The page U
 - `_config.yml`: Jekyll and permalink settings.
 
 If GitHub Pages is configured to use a custom build process or has Jekyll processing disabled, verify that its build includes the Jekyll step before publishing any Markdown articles.
+
+## Article discovery
+
+The public `/articles/` index builds topic filters directly from each post's `category` front-matter field. Reuse existing category names consistently to avoid almost-identical duplicate filters. The homepage highlights two recent non-AI articles and one AI article (where available), rather than letting a single posting burst dominate the page. Individual article pages favour related posts from the same category before using other topics as a fallback.
+
+## Enquiry and measurement setup
+
+See `MEASUREMENT.md` for the new contact journey, email subject source tags and opt-in analytics integration. No form backend or analytics provider is enabled by default.
