@@ -38,11 +38,11 @@ Official references:
 
 ## Phase 2: Website analytics
 
-**Prepared, but inactive.** The site now supports free **Umami Cloud Hobby**, which includes pageviews and custom events. No analytics script loads until the owner provides their real Umami website ID and the site config is changed from `analytics_provider: "none"` to `"umami"`.
+**Configured:** Umami Cloud is selected in `_config.yml` with website ID `27ea7107-ec4b-43ff-b38d-032f3d5aaad9`. A successful production deploy and a dashboard pageview/event test must still confirm that data is flowing. It is **not** yet appropriate to claim the analytics have been observed working.
 
-Follow `ANALYTICS_AND_GSC.md` for the provider setup, site ID placement, measurement event meanings and Google Search Console review.
+Follow `ANALYTICS_AND_GSC.md` to verify production collection and inspect Google Search Console data.
 
-The existing Plausible wiring is retained as an alternative. Do not install both. Avoid counting `enquiry_submit_attempt` as a completed business lead, and never send prospect details in analytics properties.
+The existing Plausible wiring is retained as an alternative, but is not loaded concurrently. `enquiry_submit_attempt` must not be counted as a completed lead. No visitor-entered form contents are intentionally sent in analytics properties.
 
 ## Phase 3: Search Console and content
 
@@ -55,7 +55,7 @@ The existing Plausible wiring is retained as an alternative. Do not install both
 
 - Confirming the public GitHub Pages deployment using a fresh browser session
 - Confirming Formspree delivery through its dashboard and at hello@tractionfactory.co
-- Creating a free Umami Cloud website, obtaining the public website ID and validating real events
+- Confirming production Umami pageviews and events in the connected dashboard
 - Reading private Google Search Console performance data
 
 These require provider/account access or an externally verified response. Do not mark them completed simply because the code has been merged.
