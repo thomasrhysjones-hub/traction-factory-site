@@ -342,30 +342,40 @@ body.tf-inner-page {
 }
 
 
-/* Desktop heroes: one continuous photographic composition, not a split panel.
-   Keep the image underneath the copy and feather the charcoal overlay across
-   a broad portion of the hero. Phone layouts remain unchanged. */
+/* Desktop heroes: retain the native size of the source photography.
+   Feather the entire left edge of the image into the same charcoal as
+   the hero, rather than scaling a 900px source to the viewport width. */
 @media (min-width: 621px) {
-  .tf-inner-page .tf-photo-hero .tf-page-hero-art {
+  .tf-inner-page .tf-photo-hero {
+    --tf-art-width: min(72%, 900px);
+  }
+  .tf-inner-page .post-hero {
+    --tf-art-width: min(72%, 840px);
+  }
+  .tf-inner-page .tf-photo-hero .tf-page-hero-art,
+  .tf-inner-page .post-hero .tf-post-cover {
     position: absolute;
-    inset: 0;
-    width: 100%;
+    inset: 0 0 0 auto;
+    width: var(--tf-art-width);
     height: 100%;
-    max-width: none;
+    max-width: 100%;
     object-fit: cover;
-    object-position: center 50%;
+    object-position: center;
     z-index: -2;
   }
-  .tf-inner-page .tf-photo-hero::after {
+  .tf-inner-page .tf-photo-hero::after,
+  .tf-inner-page .post-hero::after {
     display: block;
-    inset: 0;
+    inset: 0 0 0 auto;
+    width: var(--tf-art-width);
     background: linear-gradient(90deg,
-      rgba(16,17,16,.98) 0%,
-      rgba(16,17,16,.96) 20%,
-      rgba(16,17,16,.88) 39%,
-      rgba(16,17,16,.73) 52%,
-      rgba(16,17,16,.34) 72%,
-      rgba(16,17,16,.06) 100%);
+      #101110 0%,
+      rgba(16,17,16,.98) 6%,
+      rgba(16,17,16,.89) 18%,
+      rgba(16,17,16,.68) 36%,
+      rgba(16,17,16,.32) 57%,
+      rgba(16,17,16,.05) 83%,
+      rgba(16,17,16,0) 100%);
     z-index: -1;
     pointer-events: none;
   }
@@ -374,13 +384,15 @@ body.tf-inner-page {
     z-index: 1;
   }
 }
-@media (min-width: 621px) and (max-width: 900px) {
-  .tf-inner-page .tf-photo-hero::after {
+@media (min-width: 621px) and (max-width: 1100px) {
+  .tf-inner-page .tf-photo-hero::after,
+  .tf-inner-page .post-hero::after {
     background: linear-gradient(90deg,
-      rgba(16,17,16,.97) 0%,
-      rgba(16,17,16,.93) 28%,
-      rgba(16,17,16,.85) 50%,
-      rgba(16,17,16,.50) 72%,
-      rgba(16,17,16,.12) 100%);
+      #101110 0%,
+      rgba(16,17,16,.98) 10%,
+      rgba(16,17,16,.89) 30%,
+      rgba(16,17,16,.76) 48%,
+      rgba(16,17,16,.36) 75%,
+      rgba(16,17,16,.08) 100%);
   }
 }
