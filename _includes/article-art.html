@@ -22,4 +22,11 @@
     {%- assign tf_non_ai_count = tf_non_ai_count | plus: 1 -%}
   {%- endif -%}
 {%- endfor -%}
+{%- if include.variant == 'hero' -%}
+  {%- assign tf_hd_name = tf_cover | split: '/' | last | split: '.' | first -%}
+  {%- if tf_hd_name == 'articles' -%}
+    {%- assign tf_hd_name = 'article-2' -%}
+  {%- endif -%}
+  {%- assign tf_cover = tf_hd_name | prepend: '/assets/article-heroes-hd/' | append: '.avif' -%}
+{%- endif -%}
 {{- tf_cover -}}
