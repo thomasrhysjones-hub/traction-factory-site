@@ -148,11 +148,14 @@ body.tf-inner-page {
   .tf-inner-header .header-inner { height: 68px; }
   .tf-inner-header .brand span { font-size: 12px; letter-spacing: .17em; }
   .tf-inner-header .brand::before { width: 35px; height: 3px; }
-  .tf-inner-page .tf-photo-hero { display: flex; flex-direction: column; min-height: 0; align-items: stretch; }
-  .tf-inner-page .tf-photo-hero.contact-hero { min-height: 0; }
-  .tf-photo-hero::after { display: none; }
-  .tf-photo-hero .tf-page-hero-art { position: static; order: 2; z-index: auto; width: 100%; height: clamp(210px,62vw,325px); object-fit: cover; }
-  .tf-inner-page .tf-photo-hero .inner-hero-grid { order: 1; grid-template-columns: minmax(0,1fr); gap: 20px; padding-block: 37px 32px; }
+  /* Keep the image and live text together, as on the homepage. Content sets
+     the height, so longer introductions and enlarged text are never clipped. */
+  .tf-inner-page .tf-photo-hero { display: flex; align-items: center; min-height: 410px; }
+  .tf-inner-page .tf-photo-hero.contact-hero { min-height: 390px; }
+  .tf-photo-hero .tf-page-hero-art { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: center; z-index: -2; }
+  .tf-photo-hero::after { display: block; inset: 0; background: linear-gradient(110deg,rgba(8,10,9,.86) 0%,rgba(8,10,9,.74) 60%,rgba(8,10,9,.58) 100%), linear-gradient(0deg,rgba(8,10,9,.35),transparent 50%); }
+  .tf-inner-page .tf-photo-hero .inner-hero-grid { position: relative; z-index: 1; grid-template-columns: minmax(0,1fr); gap: 20px; padding-block: 45px 48px; }
+  .tf-inner-page .tf-photo-hero h1 span { color: #ff7028; }
   .tf-inner-page .tf-photo-hero h1 { font-size: clamp(35px,9.5vw,53px); letter-spacing: -.045em; }
   .tf-inner-page .tf-photo-hero .eyebrow { font-size: 10px; }
   .tf-inner-page .tf-photo-hero .inner-side > p:not(.eyebrow) { font-size: 15px; }
@@ -161,9 +164,15 @@ body.tf-inner-page {
   .tf-inner-page .small-section-head h2 { font-size: 36px; }
   .tf-inner-page .detail-item { padding-block: 20px 24px; }
   .tf-inner-page .article-list { grid-template-columns: minmax(0,1fr); gap: 26px; }
-  .tf-inner-page .post-hero .shell.tf-post-hero-grid { grid-template-columns: minmax(0,1fr); gap: 24px; }
-  .tf-inner-page .post-hero h1 { font-size: clamp(35px,9.5vw,48px); }
-  .tf-inner-page .post-hero .tf-post-cover { aspect-ratio: 2/1; }
+  /* Article headlines also overlay their cover on phones; desktop retains its editorial split. */
+  .tf-inner-page .post-hero { position: relative; isolation: isolate; overflow: hidden; background: #101110; padding-block: 40px 44px; }
+  .tf-inner-page .post-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(110deg,rgba(8,10,9,.87),rgba(8,10,9,.73) 65%,rgba(8,10,9,.62)); }
+  .tf-inner-page .post-hero .shell.tf-post-hero-grid { grid-template-columns: minmax(0,1fr); gap: 0; }
+  .tf-inner-page .post-hero .tf-post-intro { position: relative; z-index: 1; }
+  .tf-inner-page .post-hero h1 { color: #fff; font-size: clamp(35px,9.5vw,48px); }
+  .tf-inner-page .post-hero .breadcrumb, .tf-inner-page .post-hero .inner-lede, .tf-inner-page .post-hero .post-meta { color: #f1eee9; }
+  .tf-inner-page .post-hero .eyebrow { color: #ff985c; }
+  .tf-inner-page .post-hero .tf-post-cover { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; max-width: none; aspect-ratio: auto; object-fit: cover; }
   .tf-inner-page .article-shell { padding-block: 34px 45px; }
   .tf-inner-page .article-body { font-size: 16px; }
   .tf-inner-page .contact-section { padding-block: 41px 45px; }
