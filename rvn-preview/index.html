@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eeece5">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Railven is developing usage-priced casino aggregation infrastructure. Operator- or studio-funded processing, published studio catalogue memberships, and direct content agreements without GGR-based Railven fees.">
+  <title>Railven | The connection. Not the cut.</title>
+  <style>
+    :root {
+      --paper:#eeece5; --cream:#f8f7f2; --ink:#171a18; --muted:#666965;
+      --line:#c8c7bf; --faint:#deddd4; --orange:#e85b3d; --orange-dark:#c54328;
+      --night:#191d1c; --night-line:#444b47; --night-text:#eaeae3;
+      --mono:ui-monospace,'SFMono-Regular',Consolas,'Liberation Mono',monospace;
+      --font:'Inter Display','Inter',Arial,sans-serif;
+      --max:1416px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:84px}
+    body{margin:0;color:var(--ink);background:var(--paper);font-family:var(--font);line-height:1.5;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit}
+    button{cursor:pointer}
+    img,svg{max-width:100%}
+    ::selection{color:#10110f;background:#fb976d}
+    a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+    .container{max-width:var(--max);margin-inline:auto;padding-inline:clamp(22px,4.2vw,74px)}
+    .micro{font:600 13px/1.45 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+    .muted{color:var(--muted)}
+    .section-index{display:inline-flex;align-items:center;gap:13px;color:var(--muted)}
+    .section-index:before{content:'';width:21px;height:1px;background:currentColor}
+    .arrow-link{display:inline-flex;align-items:center;gap:18px;border-bottom:1px solid currentColor;padding:0 0 9px;font-size:15px;font-weight:700;transition:gap .2s ease,color .2s ease}
+    .arrow-link:hover{gap:28px;color:var(--orange-dark)}
+    .btn{min-height:52px;display:inline-flex;justify-content:space-between;align-items:center;gap:22px;border:1px solid var(--ink);padding:13px 20px;color:var(--ink);background:transparent;font-size:15px;font-weight:700;transition:background .15s,color .15s,transform .15s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn.ink{background:var(--ink);color:var(--cream)}
+    .btn.ink:hover{background:#3c433e}
+    .btn.orange{background:var(--orange);border-color:var(--orange);color:#101313}
+    .btn.orange:hover{background:#ff8063}
+    .header{position:relative;z-index:100;background:var(--paper);border-bottom:1px solid var(--ink)}
+    .head-inner{height:84px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+    .wordmark{display:flex;align-items:center;gap:13px;white-space:nowrap;min-width:0}
+    .logo-symbol{width:35px;height:35px;flex:none;background:var(--orange);display:grid;place-items:center;overflow:hidden}
+    .logo-symbol svg{width:24px;height:24px}
+    .wordmark-text{font-weight:850;font-size:22px;line-height:1;letter-spacing:-.065em}
+    .nav{display:flex;align-items:center;gap:clamp(17px,2vw,37px)}
+    .nav a{font-size:15px;font-weight:650;white-space:nowrap;transition:color .15s}
+    .nav a:hover{color:var(--orange-dark)}
+    .header-cta{display:flex;align-items:center;gap:17px;font-size:15px;font-weight:750;white-space:nowrap}
+    .header-cta:after{content:'↗';display:inline-grid;place-items:center;background:var(--ink);color:var(--paper);height:29px;width:29px;font-size:16px;transition:background .15s}
+    .header-cta:hover:after{background:var(--orange)}
+    .menu-button{display:none;border:1px solid var(--ink);background:transparent;min-width:43px;height:43px;font-size:20px}
+    .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--ink)}
+    .hero .container{padding-top:clamp(52px,6.7vw,115px);padding-bottom:clamp(75px,8vw,125px)}
+    .hero-topline{display:flex;justify-content:space-between;gap:24px;color:#464a45;margin-bottom:clamp(30px,4vw,70px)}
+    .hero-status{display:flex;align-items:center;gap:9px}
+    .status-dot{width:6px;height:6px;background:var(--orange);border-radius:50%}
+    .hero-content{display:grid;grid-template-columns:minmax(0,1.10fr) minmax(350px,.90fr);column-gap:clamp(30px,6vw,110px);align-items:end}
+    h1,h2,h3,p{margin-top:0}
+    .hero h1{font-size:clamp(69px,7.4vw,121px);font-weight:670;line-height:.955;letter-spacing:-.09em;margin-bottom:0;max-width:970px}
+    .hero h1 em{font-weight:590;color:var(--orange);font-style:normal}
+    .hero-intro{max-width:485px;padding-bottom:6px}
+    .hero-intro p{font-size:clamp(19px,1.65vw,23px);line-height:1.4;letter-spacing:-.025em;margin-bottom:27px}
+    .hero-intro .sub{max-width:415px;font-size:17px;line-height:1.65;color:var(--muted);letter-spacing:0;margin:0 0 30px}
+    .hero-stats{display:flex;gap:32px;margin-top:clamp(50px,6vw,100px);align-items:flex-end;border-top:1px solid var(--ink);padding-top:18px}
+    .hero-stat{flex:1;display:flex;align-items:flex-start;gap:12px;min-width:0}
+    .hero-stat .number{font:550 clamp(35px,4.2vw,60px)/.95 var(--font);letter-spacing:-.07em}
+    .hero-stat p{font:550 14px/1.5 var(--mono);text-transform:uppercase;letter-spacing:.02em;color:var(--muted);max-width:180px;margin:3px 0 0}
+    .hero-stat:last-child{justify-content:end}
+    .ticker{background:var(--orange);color:var(--ink);border-bottom:1px solid var(--ink)}
+    .ticker .container{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .ticker-item{padding:18px 12px 18px 0;font:650 15px/1.4 var(--mono);display:flex;align-items:center;gap:12px;border-right:1px solid rgba(23,26,24,.3)}
+    .ticker-item:before{content:'↗';font-size:18px;font-weight:400}
+    .ticker-item:last-child{border-right:0}
+    section{scroll-margin-top:80px}
+    .premise{padding:clamp(100px,12vw,184px) 0 clamp(90px,10vw,155px)}
+    .premise-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:8vw;align-items:start}
+    .premise h2{font-size:clamp(47px,5.1vw,83px);font-weight:590;line-height:1.04;letter-spacing:-.075em;max-width:860px;margin:0}
+    .premise h2 span{color:var(--orange-dark)}
+    .premise-copy{border-top:1px solid var(--ink);padding-top:25px;margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:970px}
+    .premise-copy p{font-size:18px;line-height:1.7;color:#494d48;margin:0}
+    .structure{background:var(--night);color:var(--night-text);padding:clamp(85px,9vw,145px) 0}
+    .structure .section-index{color:#b5beb6}
+    .structure-top{display:flex;align-items:end;justify-content:space-between;gap:50px;margin-bottom:80px}
+    .structure h2{font-size:clamp(46px,5.2vw,79px);font-weight:610;line-height:1.04;letter-spacing:-.075em;max-width:800px;margin:18px 0 0}
+    .structure-top p{color:#aeb7ae;font-size:18px;line-height:1.7;max-width:325px;margin-bottom:6px}
+    .rail-diagram{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid #646e65;border-bottom:1px solid #646e65;min-height:270px}
+    .rail-col{padding:30px 33px 35px 0;position:relative}
+    .rail-col:not(:last-child){border-right:1px solid #59635b;margin-right:33px}
+    .rail-label{font:550 13px var(--mono);color:#a6b0a7;letter-spacing:.11em}
+    .rail-name{font-size:clamp(29px,3vw,49px);letter-spacing:-.06em;line-height:1.1;margin:55px 0 15px}
+    .rail-col.middle .rail-name{color:#f47a5d}
+    .rail-desc{color:#aeb7ae;font-size:17px;line-height:1.6;max-width:280px}
+    .rail-col:after{content:'→';font:350 34px var(--font);position:absolute;right:18px;top:49%;transform:translateY(-50%);color:#f47a5d}
+    .rail-col:last-child:after{display:none}
+    .structure-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:50px;margin-top:42px}
+    .structure-note{border-top:1px solid #475049;padding-top:18px}
+    .structure-note .micro{color:#d6745a}
+    .structure-note p{font-size:17px;line-height:1.65;color:#c7cdc7;max-width:310px;margin:15px 0 0}
+    .explainer{padding:clamp(100px,11vw,160px) 0 35px}
+    .explainer-head{display:grid;grid-template-columns:1.1fr .9fr;gap:65px;margin-bottom:60px;align-items:end}
+    .explainer-head h2{font-size:clamp(48px,5.9vw,86px);line-height:1.01;font-weight:600;letter-spacing:-.085em;margin:20px 0 0;max-width:900px}
+    .explainer-head p{max-width:455px;font-size:18px;line-height:1.7;color:#525650;margin:0 0 6px auto}
+    .calculator{display:grid;grid-template-columns:1.02fr .98fr;border:1px solid var(--ink);background:var(--cream)}
+    .calc-form{padding:clamp(25px,3.5vw,58px);border-right:1px solid var(--ink)}
+    .calc-title{font-size:31px;letter-spacing:-.04em;line-height:1.1;font-weight:660;margin:20px 0 8px}
+    .calc-form .desc{font-size:16px;color:var(--muted);max-width:460px;line-height:1.65;margin:0 0 35px}
+    .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px 28px}
+    .field{display:flex;flex-direction:column;min-width:0;gap:10px}
+    .field label{font-size:15px;font-weight:650;line-height:1.4;min-height:31px}
+    .field input{width:100%;padding:10px 0 12px;background:transparent;color:var(--ink);border:0;border-bottom:1px solid #acaea6;border-radius:0;outline:0;font-size:clamp(17px,1.7vw,23px);font-weight:650;font-variant-numeric:tabular-nums}
+    .field input:focus{border-color:var(--orange);box-shadow:0 1px 0 var(--orange)}
+    .field .hint{font-size:13px;line-height:1.65;color:var(--muted);max-width:260px}
+    .calc-method{margin-top:35px;padding-top:20px;border-top:1px solid var(--line)}
+    .calc-method p{margin:9px 0 0;font-size:15px;line-height:1.7;color:var(--muted)}
+    .calc-result{padding:clamp(27px,3.7vw,62px);background:var(--night);color:var(--night-text);display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+    .calc-result .micro{color:#afb7ae}
+    .result-number{font-size:clamp(52px,5.9vw,94px);font-weight:620;letter-spacing:-.08em;line-height:1.03;margin:20px 0 4px;font-variant-numeric:tabular-nums}
+    .result-desc{font-size:15px;color:#acb3ac;margin:8px 0 38px}
+    .result-breakdown{border-top:1px solid var(--night-line)}
+    .result-line{display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:17px 0;border-bottom:1px solid var(--night-line);font-size:15px}
+    .result-line span{color:#b0b8b0}
+    .result-line strong{font-size:17px;font-variant-numeric:tabular-nums;white-space:nowrap}
+    .result-delta{display:grid;grid-template-columns:1fr auto;gap:12px;padding-top:26px}
+    .result-delta strong{font-size:clamp(27px,3vw,44px);line-height:1;letter-spacing:-.06em;color:#f47a5d;white-space:nowrap}
+    .result-delta .title{font-size:16px;font-weight:700}
+    .result-delta .small{font-size:14px;color:#adb7ae;max-width:270px;line-height:1.6;margin-top:7px}
+    .pricing-note{margin-top:20px;font-size:15px;line-height:1.7;color:var(--muted);max-width:1020px}
+    .pricing-note strong{color:var(--ink)}
+    .audience{padding:clamp(105px,11vw,168px) 0}
+    .audience-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:42px;align-items:end}
+    .audience-head h2{font-size:clamp(52px,6vw,86px);font-weight:600;line-height:1.03;letter-spacing:-.08em;margin:17px 0 0}
+    .audience-head p{font-size:18px;line-height:1.8;max-width:430px;justify-self:end;color:#595c57;margin:0 0 10px}
+    .audience-table{border-top:1px solid var(--ink)}
+    .audience-row{display:grid;grid-template-columns:minmax(175px,1fr) 1.25fr 1.35fr;gap:35px;padding:33px 0;border-bottom:1px solid var(--line);align-items:start}
+    .audience-row h3{font-size:clamp(24px,2.7vw,37px);letter-spacing:-.055em;font-weight:680;line-height:1.2;margin:0}
+    .audience-row p{font-size:17px;line-height:1.7;color:#555a54;margin:0}
+    .audience-row .micro{color:var(--orange-dark);padding-top:8px}
+    .details-band{background:#dcdcd2;padding:clamp(95px,10vw,145px) 0}
+    .details-head{display:grid;grid-template-columns:.7fr 1.3fr;gap:60px;margin-bottom:30px}
+    .details-head h2{font-size:clamp(46px,5.5vw,76px);font-weight:610;line-height:1.04;letter-spacing:-.077em;margin:0;max-width:840px}
+    .detail-list{margin-top:60px;border-top:1px solid var(--ink)}
+    .detail-item{display:grid;grid-template-columns:110px 1fr 1.15fr;gap:30px;align-items:start;padding:29px 0;border-bottom:1px solid #a8aaa0}
+    .detail-item .num{font:550 12px var(--mono);color:var(--orange-dark);padding-top:5px}
+    .detail-item h3{font-size:clamp(24px,2.4vw,37px);font-weight:630;letter-spacing:-.05em;line-height:1.1;margin:0}
+    .detail-item p{font-size:17px;line-height:1.7;color:#545952;max-width:475px;margin:0}
+    .questions{padding:clamp(100px,12vw,175px) 0}
+    .questions-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(40px,9vw,150px)}
+    .questions h2{font-size:clamp(52px,5vw,76px);font-weight:600;letter-spacing:-.073em;line-height:1.05;margin-top:20px}
+    .faq-list{border-top:1px solid var(--ink)}
+    details{border-bottom:1px solid var(--line)}
+    details summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;font-size:18px;font-weight:670}
+    details summary::-webkit-details-marker{display:none}
+    details summary:after{content:'+';font:350 24px/1 var(--font);color:var(--orange-dark);flex:none}
+    details[open] summary:after{content:'−'}
+    details p{max-width:650px;font-size:17px;line-height:1.75;color:#5d615a;margin:0 0 23px}
+    .contact{background:var(--orange);border-top:1px solid var(--ink);padding:clamp(80px,10vw,135px) 0 66px}
+    .contact-layout{display:grid;grid-template-columns:1.4fr .6fr;gap:90px;align-items:end}
+    .contact h2{font-size:clamp(60px,7.9vw,124px);font-weight:630;line-height:.99;letter-spacing:-.086em;margin:22px 0 0;max-width:1000px}
+    .contact-right p{max-width:360px;font-size:18px;line-height:1.65;margin-bottom:25px}
+    .contact-right .btn{min-width:220px}
+    .footer{background:var(--night);color:#dadfd9;padding:29px 0 33px}
+    .footer .container{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start}
+    .foot-logo{font-size:24px;letter-spacing:-.07em;font-weight:820}
+    .footer small{display:block;font-size:13px;color:#a2aba2;line-height:1.75;max-width:900px;margin-top:11px}
+    .footer-right{text-align:right;font-size:13px;line-height:1.8;color:#a2aba2}
+    .footer-right a{border-bottom:1px solid #a2aba2}
+    @media(max-width:1100px){
+      .hero-content{grid-template-columns:1fr .7fr;gap:40px}
+      .hero h1{font-size:clamp(65px,7vw,100px)}
+      .hero-stats{gap:20px}
+      .rail-col:not(:last-child){margin-right:16px}
+      .rail-col:after{right:4px}
+      .rail-diagram{min-height:300px}
+      .nav{gap:17px}
+    }
+    @media(max-width:800px){
+      html{scroll-padding-top:68px}
+      .head-inner{height:70px}
+      .nav{display:none;position:absolute;left:0;right:0;top:70px;background:var(--paper);padding:16px 24px 24px;border-bottom:1px solid var(--ink);flex-direction:column;align-items:stretch;gap:0}
+      .nav.open{display:flex}
+      .nav a{font-size:18px;padding:12px 0;border-bottom:1px solid var(--line)}
+      .header-cta{margin-left:auto}
+      .menu-button{display:grid;place-items:center}
+      .hero .container{padding-top:45px}
+      .hero-topline{margin-bottom:46px}
+      .hero-content,.premise-grid,.explainer-head,.audience-head,.details-head,.questions-grid,.contact-layout{grid-template-columns:1fr;gap:27px}
+      .hero h1{font-size:clamp(63px,10vw,90px)}
+      .hero-intro{max-width:650px}
+      .hero-intro p{font-size:20px}
+      .hero-stats{margin-top:55px}
+      .premise{padding-block:95px}
+      .premise-copy{margin-top:20px}
+      .structure-top{align-items:start;flex-direction:column;gap:20px;margin-bottom:50px}
+      .rail-diagram{grid-template-columns:1fr;min-height:0}
+      .rail-col{padding:24px 15px 36px 0}
+      .rail-col:not(:last-child){border-right:0;border-bottom:1px solid #59635b;margin-right:0}
+      .rail-name{margin:22px 0 8px}
+      .rail-col:after{top:auto;bottom:2px;left:auto;right:0;transform:none;content:'↓'}
+      .structure-notes{gap:22px}
+      .explainer-head p,.audience-head p{justify-self:start;margin:0}
+      .calculator{grid-template-columns:1fr}
+      .calc-form{border-right:0;border-bottom:1px solid var(--ink)}
+      .audience-row{grid-template-columns:1fr 1.4fr;gap:15px}
+      .audience-row .micro{grid-column:2}
+      .detail-item{grid-template-columns:65px 1fr;gap:20px}
+      .detail-item p{grid-column:2}
+      .contact{padding-bottom:95px}
+      .contact-right{display:flex;gap:24px;align-items:end;justify-content:space-between}
+    }
+    @media(max-width:560px){
+      .container{padding-inline:22px}
+      .head-inner{gap:12px}
+      .wordmark-text{font-size:22px}
+      .header-cta{font-size:0;gap:0}
+      .header-cta:after{font-size:17px;width:36px;height:36px}
+      .hero-topline{font-size:12px;gap:12px;align-items:flex-start}
+      .hero h1{font-size:clamp(53px,11.3vw,72px);letter-spacing:-.085em}
+      .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:30px 20px}
+      .hero-stat:last-child{justify-content:start}
+      .hero-stat .number{font-size:40px}
+      .ticker .container{grid-template-columns:1fr;padding-block:6px}
+      .ticker-item{border-right:0;border-bottom:1px solid rgba(23,26,24,.3);padding:12px 0}
+      .ticker-item:last-child{border-bottom:0}
+      .premise h2,.explainer-head h2,.audience-head h2,.structure h2,.questions h2{font-size:clamp(44px,10vw,63px)}
+      .premise-copy{grid-template-columns:1fr;gap:20px}
+      .structure-notes{grid-template-columns:1fr}
+      .input-grid{grid-template-columns:1fr 1fr;gap:22px 15px}
+      .field label{min-height:60px}
+      .field input{font-size:19px}
+      .calc-form,.calc-result{padding:25px 22px}
+      .result-number{font-size:63px}
+      .result-delta{grid-template-columns:1fr}
+      .result-delta strong{font-size:39px}
+      .audience-row{grid-template-columns:1fr;gap:10px;padding:28px 0}
+      .audience-row .micro{grid-column:1;padding-top:0}
+      .detail-item{grid-template-columns:43px 1fr;gap:15px}
+      .contact h2{font-size:clamp(54px,11.5vw,78px)}
+      .contact-right{display:block}
+      .footer .container{grid-template-columns:1fr;gap:24px}
+      .footer-right{text-align:left}
+    }
+    /* READABILITY PASS 2: larger type throughout, not just cosmetic increases. */
+    body{font-size:18px}
+    :root{--muted:#525850}
+    .micro{font-size:16px;line-height:1.45;letter-spacing:.07em}
+    .arrow-link{font-size:18px}
+    .btn{font-size:18px;min-height:58px;padding:15px 23px}
+    .head-inner{height:88px}
+    .nav a,.header-cta{font-size:18px}
+    .hero-topline{font-size:16px}
+    .hero-intro{max-width:535px}
+    .hero-intro p{font-size:clamp(23px,2.05vw,29px);line-height:1.37;margin-bottom:24px}
+    .hero-intro .sub{font-size:21px;line-height:1.57;max-width:485px;margin-bottom:32px;color:#424840}
+    .hero-stat p{font-size:17px;line-height:1.48;max-width:205px;color:#464c45}
+    .ticker-item{font-size:18px;line-height:1.5;padding-block:20px}
+    .premise-copy p{font-size:20px;line-height:1.65}
+    .structure-top p{font-size:20px;line-height:1.65}
+    .rail-label{font-size:16px}
+    .rail-desc{font-size:19px;line-height:1.55}
+    .structure-note p{font-size:19px;line-height:1.6}
+    .explainer-head p{font-size:20px;line-height:1.62}
+    .calc-title{font-size:35px}
+    .calc-form .desc{font-size:19px;line-height:1.6}
+    .field label{font-size:18px;line-height:1.4}
+    .field .hint{font-size:16px;line-height:1.5}
+    .field input{font-size:clamp(21px,1.8vw,26px)}
+    .calc-method p{font-size:18px;line-height:1.65}
+    .result-desc{font-size:18px;line-height:1.5}
+    .result-line{font-size:18px}
+    .result-line strong{font-size:20px}
+    .result-delta .title{font-size:19px}
+    .result-delta .small{font-size:17px;line-height:1.55}
+    .pricing-note{font-size:18px;line-height:1.6}
+    .audience-head p{font-size:20px;line-height:1.65}
+    .audience-row p{font-size:19px;line-height:1.64}
+    .detail-item .num{font-size:16px}
+    .detail-item p{font-size:19px;line-height:1.65}
+    details summary{font-size:21px;line-height:1.45}
+    details p{font-size:19px;line-height:1.65}
+    .contact-right p{font-size:21px;line-height:1.55}
+    .footer small,.footer-right{font-size:16px;line-height:1.65}
+    @media(max-width:1000px){
+      .nav a,.header-cta{font-size:16px}
+      .hero-intro p{font-size:24px}
+      .hero-intro .sub{font-size:19px}
+    }
+    @media(max-width:800px){
+      .nav a{font-size:20px}
+      .hero-intro p{font-size:24px}
+      .hero-intro .sub{font-size:20px}
+    }
+    @media(max-width:560px){
+      .hero-topline{font-size:14px;line-height:1.6}
+      .hero-intro p{font-size:23px}
+      .hero-intro .sub{font-size:19px}
+      .micro{font-size:14px;letter-spacing:.04em}
+      .hero-stat p{font-size:15px}
+      .ticker-item{font-size:17px}
+      .premise-copy p,.structure-top p,.explainer-head p,.audience-head p{font-size:19px}
+      .rail-desc,.structure-note p,.audience-row p,.detail-item p,details p{font-size:18px}
+      .field label{font-size:16px}
+      .field .hint{font-size:15px}
+      .result-line{font-size:16px}
+      .result-line strong{font-size:17px}
+      .contact-right p{font-size:19px}
+      .footer small,.footer-right{font-size:15px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+  
+    /* Railven commercial model: payment routes, marginal tariffs and catalogue memberships */
+    .routes{padding:clamp(95px,10vw,145px) 0;background:var(--cream);border-bottom:1px solid var(--ink)}
+    .routes-head,.studio-head{display:grid;grid-template-columns:1.15fr .85fr;align-items:end;gap:55px;margin:27px 0 38px}
+    .routes-head h2,.studio-head h2{font-size:clamp(50px,5.5vw,83px);font-weight:610;line-height:1.04;letter-spacing:-.077em;margin:0}
+    .routes-head em,.studio-head em{font-style:normal;color:var(--orange-dark)}
+    .routes-head p,.studio-head p{font-size:20px;line-height:1.65;color:#555a54;margin:0}
+    .route-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .route-card{border:1px solid var(--ink);padding:clamp(26px,3vw,42px);background:var(--paper)}
+    .route-card h3{font-size:clamp(29px,3vw,45px);font-weight:670;letter-spacing:-.06em;margin:30px 0 16px}
+    .route-card>p{font-size:19px;line-height:1.6;color:#50564f}
+    .route-steps{border-top:1px solid var(--line);margin-top:25px}
+    .route-steps span{display:block;padding:13px 0;border-bottom:1px solid var(--line);font:600 15px/1.5 var(--mono)}
+    .route-card .route-foot{font-size:16px;line-height:1.65;color:#575c55;margin:20px 0 0}
+    .route-note{font-size:16px;line-height:1.65;color:#545a52;margin:18px 0 0;max-width:1100px}
+    .tariff-strip{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--ink);margin:0 0 18px}
+    .tariff-cell{padding:24px 17px;background:var(--cream);border-right:1px solid var(--line);display:flex;flex-direction:column;gap:9px;min-width:0}
+    .tariff-cell:last-child{border-right:0}
+    .tariff-cell strong{font-size:clamp(27px,2.8vw,41px);letter-spacing:-.065em;font-weight:680}
+    .tariff-cell small{font-size:15px;color:var(--muted)}
+    .tariff-note{font-size:17px;line-height:1.6;color:#525850;margin:0 0 30px}
+    .field select{width:100%;padding:11px 6px 12px 0;min-height:48px;background:transparent;color:var(--ink);border:0;border-bottom:1px solid #acaea6;border-radius:0;outline:0;font-size:18px;font-weight:650}
+    .field select:focus{border-color:var(--orange)}
+    .studio-pricing{background:#deddd4;border-block:1px solid var(--ink);padding:clamp(90px,10vw,150px) 0}
+    .studio-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--ink);background:var(--cream)}
+    .studio-card{min-width:0;padding:clamp(22px,2.6vw,39px);border-right:1px solid var(--line);display:flex;flex-direction:column;gap:15px}
+    .studio-card:last-child{border-right:0}
+    .studio-card h3{font-size:clamp(36px,3.65vw,55px);line-height:1.1;letter-spacing:-.07em;font-weight:660;margin:25px 0 0;white-space:nowrap}
+    .studio-card h3 span{font-size:16px;letter-spacing:0;font-weight:500;color:var(--muted)}
+    .studio-count{font-size:20px;font-weight:700;margin:0;color:var(--orange-dark)}
+    .studio-card-bottom{margin-top:auto;padding-top:25px;border-top:1px solid var(--line)}
+    .studio-card-bottom p{font-size:16px;margin:0 0 9px}
+    .studio-card-bottom small{font-size:15px;line-height:1.6;color:var(--muted)}
+    .studio-terms{display:grid;grid-template-columns:repeat(3,1fr);gap:27px;margin-top:35px}
+    .studio-terms>div{border-top:1px solid var(--ink);padding-top:17px}
+    .studio-terms p{color:#4e544d;font-size:17px;line-height:1.65;margin:12px 0 0}
+    @media(max-width:1100px){.studio-grid{grid-template-columns:repeat(2,1fr)}.studio-card:nth-child(2){border-right:0}.studio-card:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+    @media(max-width:800px){.routes-head,.studio-head{grid-template-columns:1fr;gap:18px}.route-grid{grid-template-columns:1fr}.tariff-strip{grid-template-columns:repeat(3,1fr)}.tariff-cell:nth-child(3){border-right:0}.tariff-cell:nth-child(-n+3){border-bottom:1px solid var(--line)}.studio-terms{grid-template-columns:1fr;gap:20px}}
+    @media(max-width:560px){.routes-head h2,.studio-head h2{font-size:49px}.routes-head p,.studio-head p{font-size:18px}.tariff-strip{grid-template-columns:repeat(2,1fr)}.tariff-cell{padding:17px 14px}.tariff-cell:nth-child(3){border-right:1px solid var(--line)}.tariff-cell:nth-child(2n){border-right:0}.tariff-cell:nth-child(4){border-bottom:1px solid var(--line)}.tariff-cell strong{font-size:33px}.studio-grid{grid-template-columns:1fr}.studio-card{border-right:0!important;border-bottom:1px solid var(--line)}.studio-card:last-child{border-bottom:0}.studio-card h3{font-size:47px}.route-steps span{font-size:13px}.field select{font-size:16px}}
+
+
+    /* Calculator alignment fix: consistent label heights and input baselines. */
+    .calc-form .input-grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      align-items:start;
+      row-gap:28px;
+    }
+    .calc-form .input-grid .field{
+      min-width:0;
+      gap:8px;
+      justify-content:flex-start;
+    }
+    .calc-form .input-grid .field label{
+      display:flex;
+      align-items:flex-end;
+      min-height:2.9em;
+      margin:0;
+      line-height:1.4;
+    }
+    .calc-form .input-grid .field input,
+    .calc-form .input-grid .field select{
+      width:100%;
+      height:54px;
+      min-height:54px;
+      box-sizing:border-box;
+      margin:0;
+    }
+    .calc-form .input-grid .field .hint{
+      margin-top:1px;
+    }
+    @media(max-width:600px){
+      .calc-form .input-grid{
+        grid-template-columns:minmax(0,1fr);
+        row-gap:23px;
+      }
+      .calc-form .input-grid .field label{
+        min-height:0;
+        display:block;
+      }
+    }
+  </style>
+</head>
+<body>
+<div role="status" aria-label="Staging preview" style="position:fixed;bottom:12px;left:12px;right:12px;z-index:9999;width:max-content;max-width:calc(100vw - 24px);padding:9px 13px;background:#202623;color:white;border:2px solid #fc5901;box-shadow:0 2px 14px #0004;font:600 12px/1.4 Arial,sans-serif">Traction Factory · PR #20 preview · Not live</div>
+  <header class="header">
+    <div class="container head-inner">
+      <a class="wordmark" href="#top" aria-label="Railven home">
+        <span class="logo-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 19L10 5H15L8 19" stroke="#191d1c" stroke-width="2.5"/><path d="M13 19L20 5" stroke="#191d1c" stroke-width="2.5"/></svg></span>
+        <span class="wordmark-text">railven<span style="color:var(--orange)">.</span></span>
+      </a>
+      <nav class="nav" id="navigation" aria-label="Main navigation">
+        <a href="#how">How it works</a>
+        <a href="#routes">Payment routes</a>
+        <a href="#pricing">Operator pricing</a>
+        <a href="#studio-pricing">Studio pricing</a>
+      </nav>
+      <a class="header-cta" href="mailto:hello@tractionfactory.co?subject=Railven%20design%20partner">Talk to us</a>
+      <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="container">
+        <div class="hero-topline micro"><span>Independent game distribution infrastructure</span><span class="hero-status"><span class="status-dot"></span> Pre-launch / seeking design partners</span></div>
+        <div class="hero-content">
+          <h1 id="heroTitle">The connection.<br><em>Not the cut.</em></h1>
+          <div class="hero-intro">
+            <p>One technical layer for casino operators and game studios. No Railven percentage of gaming revenue.</p>
+            <p class="sub">Operators and studios agree content terms directly. One party pays for processing on each route; studios pay a published catalogue membership to connect and stay active.</p>
+            <a class="btn ink" href="#routes">Explore the model <span aria-hidden="true">↘</span></a>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><span class="number">01</span><p>Technical connection,<br>multiple providers</p></div>
+          <div class="hero-stat"><span class="number">0%</span><p>Railven share<br>of gaming revenue</p></div>
+          <div class="hero-stat"><span class="number">↓</span><p>Marginal rates<br>as traffic grows</p></div>
+        </div>
+      </div>
+    </section>
+    <div class="ticker" aria-label="Core principles"><div class="container"><div class="ticker-item">One payer per processing route</div><div class="ticker-item">Published studio membership</div><div class="ticker-item">No Railven GGR share</div></div></div>
+
+    <section class="premise" id="approach">
+      <div class="container premise-grid">
+        <div><span class="micro section-index">01 / The premise</span></div>
+        <div>
+          <h2>The games aren't the problem. <span>The cost of connecting them is.</span></h2>
+          <div class="premise-copy"><p>In one illustrative legacy deal, an operator pays 7% of game GGR, the studio retains 5 percentage points, and the aggregator receives 2. The studio may collect the full 7% and pay the aggregator itself. Actual contracts vary.</p><p>Railven separates the technical connection from the content deal. Operators and studios negotiate game royalties directly; Railven charges transparent processing fees and published studio catalogue membership, never a percentage of GGR.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="structure" id="how">
+      <div class="container">
+        <span class="micro section-index">02 / How it works</span>
+        <div class="structure-top"><h2>Three parties.<br>One clear job each.</h2><p>Railven sits in the technical path, not in the middle of the commercial relationship.</p></div>
+        <div class="rail-diagram" role="img" aria-label="Operator connects through Railven infrastructure to approved game studio, retaining direct content agreements">
+          <div class="rail-col"><span class="rail-label">01 / CUSTOMER</span><div class="rail-name">Operator</div><div class="rail-desc">Chooses games, signs content agreements and connects to an approved API.</div></div>
+          <div class="rail-col middle"><span class="rail-label">02 / INFRASTRUCTURE</span><div class="rail-name">Railven</div><div class="rail-desc">Routes, meters and reconciles game activity. One processing payer per route.</div></div>
+          <div class="rail-col"><span class="rail-label">03 / CONTENT</span><div class="rail-name">Studio</div><div class="rail-desc">Markets and sells its own games; pays for active catalogue connectivity.</div></div>
+        </div>
+        <div class="structure-notes">
+          <div class="structure-note"><span class="micro">Commercial</span><p>Studios run their own operator sales. Railven does not sell games or negotiate royalties.</p></div>
+          <div class="structure-note"><span class="micro">Technical</span><p>Standard integration and catalogue workflows are designed for self-service after necessary approvals.</p></div>
+          <div class="structure-note"><span class="micro">Billing</span><p>Exactly one processing invoice per authorised route, plus the studio's separate catalogue membership.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="routes" id="routes">
+      <div class="container">
+        <span class="micro section-index">03 / Two payment routes</span>
+        <div class="routes-head"><h2>Who pays for the rails?<br><em>Either side. Never both.</em></h2><p>The studio and operator remain free to agree the game royalty. Railven's processing fee is billed to one designated party for each authorised route.</p></div>
+        <div class="route-grid">
+          <article class="route-card">
+            <span class="micro">A / Operator-funded</span>
+            <h3>Operator pays Railven.</h3>
+            <p>Operator pays the studio its agreed content royalty and separately pays Railven's metered processing bill.</p>
+            <div class="route-steps"><span>Operator → studio: content royalty</span><span>Operator → Railven: processing usage</span><span>Studio → Railven: catalogue membership</span></div>
+            <p class="route-foot">Where the old aggregation margin is removed from the content deal, the operator captures the processing saving.</p>
+          </article>
+          <article class="route-card">
+            <span class="micro">B / Studio-funded</span>
+            <h3>Studio pays Railven.</h3>
+            <p>Operator pays the studio under their negotiated agreement. Studio pays Railven for the processing activity and its catalogue membership.</p>
+            <div class="route-steps"><span>Operator → studio: agreed content fee</span><span>Studio → Railven: processing usage</span><span>Studio → Railven: catalogue membership</span></div>
+            <p class="route-foot">The studio initially captures any saving. The operator only saves if their content agreement is renegotiated.</p>
+          </article>
+        </div>
+        <p class="route-note">No double billing for rounds or launches. Catalogue membership pays for the standing studio integration and tools; the processing payer covers transaction activity. Content agreements, game approvals and regulatory obligations remain the parties' responsibility.</p>
+      </div>
+    </section>
+
+    <section class="explainer" id="pricing">
+      <div class="container">
+        <div class="explainer-head"><div><span class="micro section-index">04 / Operator economics</span><h2>Pay for the activity.<br>Not the revenue.</h2></div><p>Our published-model tariff has falling marginal rates. The calculator shows both payment routes against a hypothetical existing percentage-based aggregation charge. It is not a contractual quote.</p></div>
+        <div class="tariff-strip" role="table" aria-label="Proposed Railven per-million-round marginal tariffs">
+          <div class="tariff-cell" role="row"><span class="micro">First 1m</span><strong>€650</strong><small>per million rounds</small></div>
+          <div class="tariff-cell" role="row"><span class="micro">Next 9m</span><strong>€500</strong><small>per million rounds</small></div>
+          <div class="tariff-cell" role="row"><span class="micro">Next 40m</span><strong>€375</strong><small>per million rounds</small></div>
+          <div class="tariff-cell" role="row"><span class="micro">Next 200m</span><strong>€250</strong><small>per million rounds</small></div>
+          <div class="tariff-cell" role="row"><span class="micro">250m+</span><strong>€180</strong><small>per million rounds</small></div>
+        </div>
+        <p class="tariff-note">Every tier applies marginally, not retrospectively. Successful game launches: €35 per million. Normal balance, settlement and retry callbacks are included within a defined fair-use envelope. No Railven GGR percentage.</p>
+        <div class="calculator">
+          <div class="calc-form">
+            <span class="micro muted">Illustrative economics / change the inputs</span>
+            <h3 class="calc-title">Run the numbers.</h3>
+            <p class="desc">Compare processing cost with an existing incremental aggregation margin. Choose who pays Railven to see who captures the saving.</p>
+            <div class="input-grid">
+              <div class="field"><label for="rounds">Completed rounds / month</label><input id="rounds" type="number" min="0" step="100000" value="40000000" inputmode="numeric"></div>
+              <div class="field"><label for="launches">Successful game launches / month</label><input id="launches" type="number" min="0" step="10000" value="2800000" inputmode="numeric"></div>
+              <div class="field"><label for="ggr">Monthly GGR (€)</label><input id="ggr" type="number" min="0" step="1000" value="1416000" inputmode="decimal"><span class="hint">For comparison only. Railven never bills a percentage of GGR.</span></div>
+              <div class="field"><label for="aggregatePct">Current aggregator margin (% GGR)</label><input id="aggregatePct" type="number" min="0" max="100" step="0.1" value="2" inputmode="decimal"><span class="hint">Must be the avoidable aggregation component, not total studio royalties.</span></div>
+              <div class="field"><label for="studioPct">Studio content royalty (% GGR)</label><input id="studioPct" type="number" min="0" max="100" step="0.5" value="5" inputmode="decimal"></div>
+              <div class="field"><label for="fundingRoute">Who pays for processing?</label><select id="fundingRoute"><option value="operator">Operator</option><option value="studio">Studio</option></select></div>
+              <div class="field"><label for="studioPlan">Studio catalogue membership</label><select id="studioPlan"><option value="79">Launch · €79/month</option><option value="399" selected>Growth · €399/month</option><option value="1499">Scale · €1,499/month</option><option value="5999">Enterprise · €5,999/month</option></select></div>
+            </div>
+            <div class="calc-method"><span class="micro muted">How to interpret this</span><p>Illustrative current total = studio royalty + avoidable aggregator margin. If the operator funds Railven, it is assumed to replace that margin. If the studio funds Railven, the operator's payment is unchanged unless the parties renegotiate it. Membership is charged to the studio separately in either case.</p></div>
+          </div>
+          <div class="calc-result" aria-live="polite">
+            <div>
+              <span class="micro">Railven processing / month</span>
+              <div class="result-number" id="infrastructureCost">€16,498</div>
+              <p class="result-desc">Completed rounds plus eligible game launches, billed to one party only.</p>
+              <div class="result-breakdown">
+                <div class="result-line"><span>Completed rounds</span><strong id="roundCost">€16,400</strong></div>
+                <div class="result-line"><span>Game launches</span><strong id="launchCost">€98</strong></div>
+                <div class="result-line"><span>Existing aggregator margin</span><strong id="legacyCost">€28,320</strong></div>
+                <div class="result-line"><span>Studio content royalty</span><strong id="contentCost">€70,800</strong></div>
+                <div class="result-line"><span>Studio membership / month</span><strong id="membershipCost">€399</strong></div>
+                <div class="result-line"><span>Existing operator content bill</span><strong id="comparisonCost">€99,120</strong></div>
+                <div class="result-line"><span>Operator bill under selected route</span><strong id="totalCost">€87,298</strong></div>
+              </div>
+            </div>
+            <div class="result-delta">
+              <div><div class="title" id="deltaLabel">Operator savings / month</div><div class="small" id="savingsPct">Only where the avoidable aggregation margin is removed from the studio contract.</div></div>
+              <strong id="savings">€11,822 saved</strong>
+            </div>
+          </div>
+        </div>
+        <p class="pricing-note"><strong>Illustrative, not guaranteed.</strong> The existing aggregator margin varies by contract, revenue definition, jurisdiction and portfolio. If the fee is NGR-based or bundled with provider rights, the comparison needs adjustment. Operator savings are not automatic in the studio-funded route.</p>
+      </div>
+    </section>
+
+    <section class="studio-pricing" id="studio-pricing">
+      <div class="container">
+        <div class="studio-head"><div><span class="micro section-index">05 / Studio memberships</span><h2>Small studio.<br><em>Small starting fee.</em></h2></div><p>Every active studio pays for its catalogue connection, not a share of its game revenue. The rate scales with the eligible live catalogue. Railven provides technical availability, not the studio's sales team.</p></div>
+        <div class="studio-grid">
+          <article class="studio-card">
+            <span class="micro">01 / Launch</span>
+            <h3>€79<span> / month</span></h3>
+            <p class="studio-count">1–10 games</p>
+            <div class="studio-card-bottom"><p>One-off standard onboarding <strong>€99</strong></p><small>For independents starting distribution.</small></div>
+          </article>
+          <article class="studio-card">
+            <span class="micro">02 / Growth</span>
+            <h3>€399<span> / month</span></h3>
+            <p class="studio-count">11–100 games</p>
+            <div class="studio-card-bottom"><p>One-off standard onboarding <strong>€499</strong></p><small>For expanding studios and release schedules.</small></div>
+          </article>
+          <article class="studio-card">
+            <span class="micro">03 / Scale</span>
+            <h3>€1,499<span> / month</span></h3>
+            <p class="studio-count">101–500 games</p>
+            <div class="studio-card-bottom"><p>One-off standard onboarding <strong>€1,999</strong></p><small>For mature catalogues and heavier operations.</small></div>
+          </article>
+          <article class="studio-card">
+            <span class="micro">04 / Enterprise</span>
+            <h3>€5,999<span> / month</span></h3>
+            <p class="studio-count">501–3,000 games</p>
+            <div class="studio-card-bottom"><p>One-off standard onboarding <strong>€4,999</strong></p><small>For large publishers and portfolio groups.</small></div>
+          </article>
+        </div>
+        <div class="studio-terms">
+          <div><span class="micro">Before production</span><p>Sandbox evaluation and standard integration testing can begin before paid production membership. Membership starts when an eligible catalogue can be made available to approved operators.</p></div>
+          <div><span class="micro">What the fee covers</span><p>Standing technical connection, catalogue controls, conformance and release workflows, monitoring and tier-appropriate support. Exceptional work and third-party certification are separate.</p></div>
+          <div><span class="micro">Commercial independence</span><p>Studios find and negotiate with operators themselves. Listing does not guarantee placement, launches, revenue or regulatory approval. Catalogues above 3,000 games require custom scope, never a GGR-linked rate.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="audience" id="who">
+      <div class="container">
+        <div class="audience-head"><div><span class="micro section-index">06 / For the whole ecosystem</span><h2>One platform.<br>Different incentives.</h2></div><p>Operators want transparency and less technical friction. Independent studios need an attainable route to approved distribution. Major suppliers want another neutral channel without surrendering commercial relationships.</p></div>
+        <div class="audience-table">
+          <div class="audience-row"><h3>For operators</h3><p>Keep commercial control of game selection and studio contracts. Choose a technical layer with clear per-round processing rates and lower marginal prices at scale.</p><span class="micro">Commercially independent</span></div>
+          <div class="audience-row"><h3>For independent studios</h3><p>Start with up to ten eligible games at €79/month, then grow the catalogue without handing over a percentage of its success. Studio sales teams still win operator agreements.</p><span class="micro">Low barrier to entry</span></div>
+          <div class="audience-row"><h3>For major suppliers</h3><p>Add a predictable-cost channel with central catalogue, release and conformance tools, while preserving direct operator relationships and game royalties.</p><span class="micro">No revenue-share toll</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="details-band">
+      <div class="container">
+        <div class="details-head"><span class="micro section-index">07 / What we're building</span><h2>Deliberately narrow.<br>Seriously useful.</h2></div>
+        <div class="detail-list">
+          <div class="detail-item"><div class="num">01</div><h3>Reliable game routing</h3><p>Authorised games, transaction integrity, safe retries, idempotency and auditable lifecycle records. Reliability is a requirement to engineer, not a claim of current production performance.</p></div>
+          <div class="detail-item"><div class="num">02</div><h3>Metering that makes sense</h3><p>One completed logical round is one commercial event, regardless of win or loss. Supporting technical calls form part of a defined service envelope.</p></div>
+          <div class="detail-item"><div class="num">03</div><h3>Self-service by default</h3><p>After applicable checks and provider approvals, standard configurations should provision automatically. Customers still need to implement their side of the API.</p></div>
+          <div class="detail-item"><div class="num">04</div><h3>Provider catalogue workflows</h3><p>Membership-backed catalogue, conformance and release tools keep smaller studios' distribution costs accessible and help larger publishers manage complex portfolios. No guarantee of operator sales.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="questions" id="questions">
+      <div class="container questions-grid">
+        <div><span class="micro section-index">08 / Straight answers</span><h2>The details<br>matter.</h2></div>
+        <div class="faq-list">
+          <details><summary>Does Railven negotiate or replace studio royalties?</summary><p>No. Operators and studios negotiate game content agreements directly. Railven provides authorised technical routing and never takes a percentage of game revenue.</p></details>
+          <details><summary>Who pays Railven's processing fee?</summary><p>Either the operator or the studio for each authorised route, as agreed between them. Never both for the same round or launch. Studios separately pay their published catalogue membership.</p></details>
+          <details><summary>What does a studio membership buy?</summary><p>A standing technical integration, eligible live catalogue management and tier-appropriate conformance, release and monitoring workflows. Membership is required for a studio's active production catalogue. Sandbox evaluation can begin before that commitment.</p></details>
+          <details><summary>Will Railven sell a studio's games to operators?</summary><p>No. Each studio's commercial team is responsible for finding operators, negotiating royalty terms and securing launches. Railven does not promise operator placement or revenue.</p></details>
+          <details><summary>Do wins and losses create different charges?</summary><p>No. The intended unit is a completed logical game round, charged identically regardless of outcome. Routine balance, settlement and retry messages are included within a defined normal-use envelope.</p></details>
+          <details><summary>Will every operator save money?</summary><p>No. Savings depend on traffic, existing fees and the applicable revenue base. In the studio-funded route, the saving initially belongs to the studio unless it renegotiates the operator agreement.</p></details>
+          <details><summary>Is Railven live and licensed?</summary><p>Not yet. Railven is a pre-launch concept seeking design partners. Production systems, supported markets, rights, regulatory permissions and commercial terms require development and validation.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-layout">
+        <div><span class="micro">09 / Let's talk</span><h2>Better rails.<br>Better economics.</h2></div>
+        <div class="contact-right"><p>We're seeking operators and studios to validate a more practical distribution model, with transparent processing and catalogue economics.</p><a class="btn ink" href="mailto:hello@tractionfactory.co?subject=Railven%20design%20partner">Start a conversation <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container"><div><div class="foot-logo">railven.</div><small>Pre-launch concept. No claim of production availability, licences, signed content rights, guaranteed distribution or guaranteed savings. Published-model tariffs and memberships are planned, not live contractual offers.</small></div><div class="footer-right">© 2026 Railven<br><a href="#top">Back to top ↑</a></div></div></footer>
+  <script>
+    (() => {
+      'use strict';
+      const $ = id => document.getElementById(id);
+      const money = n => new Intl.NumberFormat('en-IE', {style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);
+      const number = id => { const v = Number($(id).value); return Number.isFinite(v) ? Math.max(0,v) : 0; };
+      const fraction = id => Math.min(100,number(id))/100;
+      function roundFee(rounds) {
+        let remainder = rounds/1e6, total=0;
+        for (const [qty,price] of [[1,650],[9,500],[40,375],[200,250],[Infinity,180]]) {
+          const units=Math.min(remainder,qty);
+          total+=units*price;
+          remainder-=units;
+          if(remainder<=0) break;
+        }
+        return total;
+      }
+      function calculate() {
+        const rounds=number('rounds'), launches=number('launches'), ggr=number('ggr');
+        const round=roundFee(rounds), launch=launches/1e6*35, processing=round+launch;
+        const aggregator=ggr*fraction('aggregatePct'), content=ggr*fraction('studioPct');
+        const membership=Number($('studioPlan').value)||0;
+        const payer=$('fundingRoute').value;
+        const operatorFunded=payer==='operator';
+        const oldOperatorBill=content+aggregator;
+        const newOperatorBill=operatorFunded?content+processing:oldOperatorBill;
+        const benefit=operatorFunded?aggregator-processing:aggregator-processing-membership;
+        $('roundCost').textContent=money(round);
+        $('launchCost').textContent=money(launch);
+        $('infrastructureCost').textContent=money(processing);
+        $('legacyCost').textContent=money(aggregator);
+        $('contentCost').textContent=money(content);
+        $('membershipCost').textContent=money(membership);
+        $('comparisonCost').textContent=money(oldOperatorBill);
+        $('totalCost').textContent=money(newOperatorBill);
+        $('deltaLabel').textContent=operatorFunded?'Operator savings / month':'Studio net improvement / month';
+        $('savings').textContent=money(Math.abs(benefit))+(benefit>=0?(operatorFunded?' saved':' retained'):' additional cost');
+        $('savings').style.color=benefit>=0?'#f47a5d':'#f3bea8';
+        const pct=aggregator>0?(Math.abs(benefit)/aggregator*100).toFixed(1):null;
+        $('savingsPct').textContent=operatorFunded
+          ? (pct?pct+'% '+(benefit>=0?'below':'above')+' the illustrative avoidable aggregation charge. Studio membership is a separate provider cost.':'No savings comparison at a zero existing aggregator fee.')
+          : ('Operator bill unchanged unless renegotiated. Studio benefit is after Railven processing and '+money(membership)+' monthly membership'+(pct?' ('+pct+'% of old aggregator margin).':'.'));
+      }
+      ['rounds','launches','ggr','aggregatePct','studioPct'].forEach(id=>$(id).addEventListener('input',calculate));
+      ['fundingRoute','studioPlan'].forEach(id=>$(id).addEventListener('change',calculate));
+      const menu=$('menuButton'),nav=$('navigation');
+      menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰';});
+      nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰';}));
+      calculate();
+    })();
+  </script>
+</body>
+</html>
