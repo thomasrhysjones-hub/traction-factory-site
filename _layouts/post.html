@@ -14,7 +14,7 @@ layout: default
         <a class="button button-primary article-share-hero" data-track="article_share" data-source="article-top" href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url | url_encode }}" target="_blank" rel="noopener noreferrer" aria-label="Share this article on LinkedIn">Share on LinkedIn ↗</a>
       </div>
       </div>
-      <img class="tf-post-cover" src="{% include article-art.html post=page %}" alt="" width="900" height="600" decoding="async" fetchpriority="high">
+      <img class="tf-post-cover" src="{% include article-art.html post=page variant='hero' %}" alt="" decoding="async" fetchpriority="high">
     </div>
   </header>
   <div class="shell article-shell">
