@@ -27,6 +27,9 @@
   {%- if tf_hd_name == 'articles' -%}
     {%- assign tf_hd_name = 'article-2' -%}
   {%- endif -%}
+  {%- if tf_hd_name == 'article-2' -%}
+    {%- assign tf_hd_name = 'article-2-corrected' -%}
+  {%- endif -%}
   {%- assign tf_cover = tf_hd_name | prepend: '/assets/article-heroes-hd/' | append: '.avif' -%}
 {%- endif -%}
 {{- tf_cover -}}
